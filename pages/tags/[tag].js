@@ -1,16 +1,16 @@
 import Base from "@layouts/Baseof";
-import { getSinglePages } from "@lib/contents";
+import { getAllPage, getSinglePages } from "@lib/contents";
 import { getTaxonomy } from "@lib/taxonomies";
 import Posts from "@partials/Posts";
 
 // tag page
-const Tag = ({ tag, post }) => {
+const Tag = ({ tag, post, authorData }) => {
   return (
     <Base title={tag}>
       <div className="section">
         <div className="container">
           <h1>Showing posts from {tag} tag</h1>
-          <Posts post={post} />
+          <Posts post={post} authorData={authorData} />
         </div>
       </div>
     </Base>
@@ -39,6 +39,6 @@ export const getStaticProps = ({ params }) => {
   const posts = allPosts.filter((data) =>
     data.frontmatter.tags.includes(params.tag)
   );
-
-  return { props: { post: posts, tag: params.tag } };
+  const authorData = getAllPage("content/authors");
+  return { props: { post: posts, tag: params.tag, authorData } };
 };

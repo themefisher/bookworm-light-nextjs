@@ -19,7 +19,7 @@
       "children": [
         {
           "name": "Author",
-          "url": "/author"
+          "url": "/authors"
         },
         {
           "name": "Categories",
