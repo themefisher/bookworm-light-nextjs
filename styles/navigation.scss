@@ -13,6 +13,7 @@ input#nav-toggle:checked ~ #nav-menu {
 
 // navbar items
 .navbar {
+  @apply text-center md:text-left;
 }
 
 .nav-item {
@@ -20,7 +21,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-link {
-  @apply p-4 text-lg font-medium transition hover:text-primary;
+  @apply p-4 text-lg font-semibold text-text-dark transition hover:text-primary;
 }
 
 .nav-dropdown {
@@ -35,5 +36,5 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-dropdown-link {
-  @apply min-w-[150px] py-2 text-lg font-medium transition hover:text-primary;
+  @apply min-w-[150px] py-2 text-lg font-semibold text-text-dark transition hover:text-primary;
 }
