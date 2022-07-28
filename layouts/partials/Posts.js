@@ -4,7 +4,7 @@ import { humanize, slugify } from "@lib/utils/textConverter";
 import Image from "next/image";
 import Link from "next/link";
 
-const Posts = ({ post }) => {
+const Posts = ({ post, authorData }) => {
   const { summary_length } = config.settings;
   return (
     <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
@@ -22,22 +22,31 @@ const Posts = ({ post }) => {
           )}
           <ul className="mt-4 text-text">
             <li className="mb-2 mr-4 inline-block">
-              {post.frontmatter.author.map((author, i) => (
-                <Link href={`/author/${slugify(author)}`} key={`author-${i}`}>
-                  <a className="inline-block hover:text-primary">
-                    <span className="mr-2 align-top">
-                      <Image
-                        src="/images/authors/linda.jpg"
-                        alt={post.frontmatter.author}
-                        height={25}
-                        width={25}
-                        className="h-6 w-6 rounded-full"
-                      />
-                    </span>
-                    <span>{post.frontmatter.author}</span>
-                  </a>
-                </Link>
-              ))}
+              {authorData
+                .filter((data) =>
+                  post.frontmatter.author
+                    .map((author) => slugify(author))
+                    .includes(slugify(data.frontmatter.title))
+                )
+                .map((author, i) => (
+                  <Link
+                    href={`/authors/${slugify(author.frontmatter.title)}`}
+                    key={`author-${i}`}
+                  >
+                    <a className="inline-block hover:text-primary">
+                      <span className="mr-2 align-top">
+                        <Image
+                          src={author.frontmatter.image}
+                          alt={post.frontmatter.author}
+                          height={25}
+                          width={25}
+                          className="h-6 w-6 rounded-full"
+                        />
+                      </span>
+                      <span>{author.frontmatter.title}</span>
+                    </a>
+                  </Link>
+                ))}
             </li>
             <li className="mb-2 mr-4 inline-block">
               {dateFormat(new Date(post.frontmatter.date))}

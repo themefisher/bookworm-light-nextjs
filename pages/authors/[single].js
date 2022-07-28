@@ -1,22 +1,23 @@
 import PostSingle from "@layouts/PostSingle";
-import { getAllSlug, getSinglePages } from "@lib/contents";
+import { getAllSlug, getAllPage } from "@lib/contents";
 import { serialize } from "next-mdx-remote/serialize";
 
 const Article = ({ post, mdxSource }) => {
-  const { frontmatter, slug, content } = post[0];
+  // const { frontmatter, slug, content } = post[0];
 
   return (
-    <PostSingle
-      frontmatter={frontmatter}
-      content={content}
-      slug={slug}
-      mdxSource={mdxSource}
-    />
+    <></>
+    // <PostSingle
+    // // frontmatter={frontmatter}
+    // // content={content}
+    // // slug={slug}
+    // // mdxSource={mdxSource}
+    // />
   );
 };
 
 export const getStaticPaths = () => {
-  const allSlug = getAllSlug("content/posts");
+  const allSlug = getAllSlug("content/authors");
   const paths = allSlug.map((slug) => ({
     params: {
       single: slug,
@@ -31,8 +32,9 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = async ({ params }) => {
   const { single } = params;
-  const allBlogs = getSinglePages("content/posts");
+  const allBlogs = getAllPage("content/authors");
   const singlePost = allBlogs.filter((p) => p.slug == single);
+
   const mdxSource = await serialize(singlePost[0].content);
 
   return {
