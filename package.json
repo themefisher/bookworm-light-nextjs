@@ -1,8 +1,8 @@
 {
-  "name": "next-boilerplate",
+  "name": "bookworm-light-nextjs",
   "version": "1.0.0",
-  "private": true,
-  "license": "UNLICENSED",
+  "private": false,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,7 +19,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
-    "rehype-slug": "^5.0.1"
+    "rehype-slug": "^5.0.1",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",

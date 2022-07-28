@@ -2,8 +2,8 @@
 title: How to make toys from old Olarpaper
 date: 2022-04-04T05:00:00Z
 image: "/images/posts/02.jpg"
-categories: ["development", "design"]
-author: ["Ryan Gigs"]
+categories: ["development"]
+author: ["Wanda Maxima"]
 tags: ["diy", "toy"]
 draft: false
 ---

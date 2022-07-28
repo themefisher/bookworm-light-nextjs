@@ -1,6 +1,6 @@
 ---
 title: Linda Lanester
-email: johndoe@gmail.com
+email: lindalanester@gmail.com
 image: /images/authors/linda.jpg
 description: this is meta description
 social:

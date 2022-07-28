@@ -7,23 +7,18 @@ import {
   getListPage,
   getSinglePages,
 } from "@lib/contents";
+import { parseMDX } from "@lib/utils/mdxParser";
 import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
-import { serialize } from "next-mdx-remote/serialize";
 import { useState } from "react";
 
-const BlogPagination = ({
-  blogIndex,
-  allBlogs,
-  page,
-  pagination,
-  authorData,
-}) => {
+// blog pagination
+const BlogPagination = ({ blogIndex, posts, authors, page, pagination }) => {
   const [index] = useState(true);
   const indexOfLastPost = page * pagination;
   const indexOfFirstPost = indexOfLastPost - pagination;
-  const numOfPage = Math.ceil(allBlogs.length / pagination);
-  const currentPosts = allBlogs.slice(indexOfFirstPost, indexOfLastPost);
+  const numOfPage = Math.ceil(posts.length / pagination);
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   const { frontmatter, content } = blogIndex;
   const { title } = frontmatter;
@@ -34,10 +29,10 @@ const BlogPagination = ({
         <div className="container">
           {markdownify(title, "h1")}
           <Posts
-            post={currentPosts}
+            posts={currentPosts}
+            authors={authors}
             postIndex={blogIndex}
             index={index}
-            authorData={authorData}
           />
           <Pagination numOfPage={numOfPage} page={page} />
         </div>
@@ -48,8 +43,9 @@ const BlogPagination = ({
 
 export default BlogPagination;
 
+// get blog pagination slug
 export const getStaticPaths = () => {
-  const allSlug = getAllSlug("content/posts", false);
+  const allSlug = getAllSlug("content/posts");
   const { pagination } = config.settings;
   const numOfPage = Math.ceil(allSlug.length / pagination);
   let paths = [];
@@ -68,24 +64,23 @@ export const getStaticPaths = () => {
   };
 };
 
+// get blog pagination content
 export const getStaticProps = async ({ params }) => {
   const page = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
-  const allBlogs = getSinglePages("content/posts");
-
+  const posts = getSinglePages("content/posts");
+  const authors = getAllPage("content/authors");
   const blogIndex = await getListPage("content/posts");
-
-  const mdxSource = await serialize(blogIndex.content);
-  const authorData = getAllPage("content/authors");
+  const mdxContent = await parseMDX(blogIndex.content);
 
   return {
     props: {
       pagination: pagination,
-      allBlogs: allBlogs,
+      posts: posts,
+      authors: authors,
       page: page,
       blogIndex: blogIndex,
-      mdxSource,
-      authorData: authorData,
+      mdxContent: mdxContent,
     },
   };
 };

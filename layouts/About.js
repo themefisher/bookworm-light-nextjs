@@ -5,7 +5,7 @@ import Image from "next/image";
 import Social from "./components/Social";
 
 const About = ({ data }) => {
-  const { frontmatter, mdxSource } = data;
+  const { frontmatter, mdxContent } = data;
   const { title, image, social } = frontmatter;
 
   return (
@@ -27,7 +27,7 @@ const About = ({ data }) => {
         <Social source={social} className="social-icons-simple my-8" />
 
         <div className="content">
-          <MDXRemote {...mdxSource} components={shortcodes} />
+          <MDXRemote {...mdxContent} components={shortcodes} />
         </div>
       </div>
     </section>

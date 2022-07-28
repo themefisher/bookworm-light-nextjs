@@ -1,21 +1,18 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { getAllPage, getListPage, getSinglePages } from "@lib/contents";
-import { sortByDate } from "@lib/utils/sort";
+import { sortByDate } from "@lib/utils/sortFunctions";
 import Posts from "@partials/Posts";
 
-const Home = ({ post, authorData }) => {
-  const sortPostByDate = sortByDate(post);
+const Home = ({ posts, authors }) => {
+  const sortPostByDate = sortByDate(posts);
   const showPost = 4;
   const { title } = config.site;
   return (
     <Base title={title}>
       <div className="section">
         <div className="container max-w-[1000px]">
-          <Posts
-            post={sortPostByDate.slice(0, showPost)}
-            authorData={authorData}
-          />
+          <Posts posts={sortPostByDate.slice(0, showPost)} authors={authors} />
         </div>
       </div>
     </Base>
@@ -30,14 +27,13 @@ export const getStaticProps = async () => {
   const { frontmatter } = homepage;
   const { banner } = frontmatter;
   const allPost = getSinglePages("content/posts");
-
-  const authorData = getAllPage("content/authors");
+  const authors = getAllPage("content/authors");
 
   return {
     props: {
       banner: banner,
-      post: allPost,
-      authorData: authorData,
+      posts: allPost,
+      authors: authors,
     },
   };
 };

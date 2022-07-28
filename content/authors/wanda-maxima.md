@@ -1,7 +1,7 @@
 ---
-title: Ryan Gigs
-email: johndoe@gmail.com
-image: /images/linda.jpg
+title: Wanda Maxima
+email: wandamaxima@gmail.com
+image: /images/authors/wanda.jpg
 description: this is meta description
 social:
   facebook: https://www.facebook.com/
