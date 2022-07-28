@@ -3,7 +3,7 @@ title: What you need to know about Photography
 date: 2022-04-02T06:00:00+00:00
 image: "/images/posts/03.jpg"
 categories: []
-author: ["John Doe"]
+author: ["Linda Lanester", "Jhon Doe"]
 tags: ["diy", "toy"]
 draft: false
 ---

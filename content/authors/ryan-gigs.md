@@ -1,7 +1,7 @@
 ---
-title: Linda Lanester
+title: Ryan Gigs
 email: johndoe@gmail.com
-image: /images/authors/linda.jpg
+image: /images/linda.jpg
 description: this is meta description
 social:
   facebook: https://www.facebook.com/
