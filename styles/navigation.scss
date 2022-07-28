@@ -1,0 +1,39 @@
+// navbar toggler
+input#nav-toggle:checked ~ label#show-button {
+  @apply hidden;
+}
+
+input#nav-toggle:checked ~ label#hide-button {
+  @apply flex md:hidden;
+}
+
+input#nav-toggle:checked ~ #nav-menu {
+  @apply block md:flex;
+}
+
+// navbar items
+.navbar {
+}
+
+.nav-item {
+  @apply mx-3;
+}
+
+.nav-link {
+  @apply p-4 text-lg font-medium transition hover:text-primary;
+}
+
+.nav-dropdown {
+  @apply mr-0;
+}
+
+.nav-dropdown-list {
+  @apply z-10 rounded-lg bg-white p-4 shadow transition;
+}
+
+.nav-dropdown-item {
+}
+
+.nav-dropdown-link {
+  @apply min-w-[150px] py-2 text-lg font-medium transition hover:text-primary;
+}

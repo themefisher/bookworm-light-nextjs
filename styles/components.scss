@@ -1,0 +1,33 @@
+// section style
+.section {
+  @apply py-16;
+}
+
+// container
+.container {
+  @apply mx-auto max-w-[1200px] px-4;
+}
+
+// form style
+.form-inputs * {
+  @apply mb-5 leading-10;
+}
+
+// social icon style
+.social-icons {
+  @apply space-x-4;
+  li {
+    @apply inline-block;
+    a {
+      @apply block h-12 w-12 rounded-lg border border-text-light bg-transparent text-center text-white transition hover:border-primary hover:bg-primary;
+      svg {
+        @apply m-auto h-12 text-lg;
+      }
+    }
+  }
+}
+
+// content style
+.content {
+  @apply prose max-w-none prose-h1:mb-4 prose-h1:text-h1 prose-h2:mb-4 prose-h2:mt-4 prose-h2:text-h2 prose-h3:mt-4 prose-h3:text-h3 prose-h4:mt-4 prose-h5:mb-4 prose-h6:mb-6;
+}

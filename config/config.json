@@ -1,0 +1,26 @@
+{
+  "site": {
+    "title": "Bookworm Next | Personal Blog Theme",
+    "baseURL": "/",
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "200",
+    "logo_height": "34",
+    "logo_text": "Next Boilerplate"
+  },
+
+  "settings": {
+    "pagination": 2,
+    "summary_length": 200
+  },
+
+  "params": {
+    "copyright": "Copyright © 2022 a theme by [themefisher](https://themefisher.com)"
+  },
+
+  "metadata": {
+    "meta_author": "Themefisher",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Next Boilerplate"
+  }
+}

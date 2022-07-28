@@ -1,0 +1,13 @@
+# [build]
+# publish = "out"
+
+# [[plugins]]
+# package = "@netlify/plugin-nextjs"
+
+# [build.environment]
+# NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+# Include all files in all functions
+[functions]
+node_bundler = "esbuild"
+included_files = ["content/*.md"]
