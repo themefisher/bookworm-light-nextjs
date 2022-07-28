@@ -1,4 +1,3 @@
-import social from "@config/social.json";
 import {
   IoCall,
   IoGlobeOutline,
@@ -30,7 +29,7 @@ import {
   IoMail,
 } from "react-icons/io5";
 
-const Social = ({ className }) => {
+const Social = ({ source, className }) => {
   const {
     facebook,
     twitter,
@@ -60,7 +59,7 @@ const Social = ({ className }) => {
     address,
     skype,
     website,
-  } = social;
+  } = source;
   return (
     <ul className={className}>
       {facebook && (
