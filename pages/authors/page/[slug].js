@@ -1,13 +1,24 @@
 import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getAllSlug, getListPage, getSinglePages } from "@lib/contents";
+import {
+  getAllPage,
+  getAllSlug,
+  getListPage,
+  getSinglePages,
+} from "@lib/contents";
 import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 import { serialize } from "next-mdx-remote/serialize";
 import { useState } from "react";
 
-const BlogPagination = ({ blogIndex, allBlogs, page, pagination }) => {
+const BlogPagination = ({
+  blogIndex,
+  allBlogs,
+  page,
+  pagination,
+  authorData,
+}) => {
   const [index] = useState(true);
   const indexOfLastPost = page * pagination;
   const indexOfFirstPost = indexOfLastPost - pagination;
@@ -21,7 +32,12 @@ const BlogPagination = ({ blogIndex, allBlogs, page, pagination }) => {
       <section className="section">
         <div className="container">
           {markdownify(title, "h1")}
-          <Posts post={currentPosts} postIndex={blogIndex} index={index} />
+          <Posts
+            post={currentPosts}
+            postIndex={blogIndex}
+            index={index}
+            authorData={authorData}
+          />
           <Pagination numOfPage={numOfPage} page={page} />
         </div>
       </section>
@@ -57,6 +73,7 @@ export const getStaticProps = async ({ params }) => {
   const allBlogs = getSinglePages("content/posts");
   const blogIndex = await getListPage("content/posts");
   const mdxSource = await serialize(blogIndex.content);
+  const authorData = getAllPage("content/authors");
 
   return {
     props: {
@@ -65,6 +82,7 @@ export const getStaticProps = async ({ params }) => {
       page: page,
       blogIndex: blogIndex,
       mdxSource,
+      authorData,
     },
   };
 };
