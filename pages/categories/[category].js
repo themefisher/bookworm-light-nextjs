@@ -1,5 +1,5 @@
 import Base from "@layouts/Baseof";
-import { getAllPage, getSinglePages } from "@lib/contents";
+import { getSinglePages } from "@lib/contents";
 import { getTaxonomy } from "@lib/taxonomies";
 import Posts from "@partials/Posts";
 
@@ -38,7 +38,7 @@ export const getStaticProps = ({ params }) => {
   const filterPosts = posts.filter((post) =>
     post.frontmatter.categories.includes(params.category)
   );
-  const authors = getAllPage("content/authors");
+  const authors = getSinglePages("content/authors");
 
   return {
     props: { posts: filterPosts, category: params.category, authors: authors },

@@ -1,6 +1,6 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getAllPage, getListPage, getSinglePages } from "@lib/contents";
+import { getListPage, getSinglePages } from "@lib/contents";
 import { sortByDate } from "@lib/utils/sortFunctions";
 import Posts from "@partials/Posts";
 
@@ -26,13 +26,13 @@ export const getStaticProps = async () => {
   const homepage = await getListPage("content");
   const { frontmatter } = homepage;
   const { banner } = frontmatter;
-  const allPost = getSinglePages("content/posts");
-  const authors = getAllPage("content/authors");
+  const posts = getSinglePages("content/posts");
+  const authors = getSinglePages("content/authors");
 
   return {
     props: {
       banner: banner,
-      posts: allPost,
+      posts: posts,
       authors: authors,
     },
   };

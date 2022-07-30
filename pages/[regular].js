@@ -2,7 +2,7 @@ import About from "@layouts/About";
 import Base from "@layouts/Baseof";
 import Contact from "@layouts/Contact";
 import Default from "@layouts/Default";
-import { getAllSlug, getRegularPage } from "@lib/contents";
+import { getRegularPage, getSinglePagesSlug } from "@lib/contents";
 import { plainify } from "@lib/utils/textConverter";
 
 // for all regular pages
@@ -36,7 +36,7 @@ export default RegularPages;
 
 // for regular page routes
 export const getStaticPaths = async () => {
-  const slugs = getAllSlug("content");
+  const slugs = getSinglePagesSlug("content");
   const paths = slugs.map((slug) => ({
     params: {
       regular: slug,
