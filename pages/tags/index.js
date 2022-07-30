@@ -3,16 +3,16 @@ import { humanize, markdownify } from "@lib/utils/textConverter";
 import { getTaxonomy } from "lib/taxonomies";
 import Link from "next/link";
 
-const Categories = ({ categories }) => {
+const Tags = ({ tags }) => {
   return (
-    <Base title={"categories"}>
+    <Base title={"tags"}>
       <section className="section">
         <div className="container max-w-[1000px] text-center">
-          {markdownify("Categories", "h1", "h2 mb-16")}
+          {markdownify("Tags", "h1", "h2 mb-16")}
           <ul className="space-x-4">
-            {categories.map((category, i) => (
+            {tags.map((category, i) => (
               <li key={`category-${i}`} className="inline-block">
-                <Link href={`/categories/${category}`}>
+                <Link href={`/tags/${category}`}>
                   <a className="rounded-lg bg-light px-4 py-2 text-text-dark transition hover:bg-primary hover:text-white">
                     &#8226; {humanize(category)}
                   </a>
@@ -26,14 +26,14 @@ const Categories = ({ categories }) => {
   );
 };
 
-export default Categories;
+export default Tags;
 
 export const getStaticProps = () => {
-  const categories = getTaxonomy("content/posts", "categories");
+  const tags = getTaxonomy("content/posts", "tags");
 
   return {
     props: {
-      categories: categories,
+      tags: tags,
     },
   };
 };

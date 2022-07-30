@@ -1,11 +1,11 @@
-import { AppWraper } from "context/state";
+import { JsonContext } from "context/state";
 import "styles/style.scss";
 
 const App = ({ Component, pageProps }) => {
   return (
-    <AppWraper>
+    <JsonContext>
       <Component {...pageProps} />
-    </AppWraper>
+    </JsonContext>
   );
 };
 
