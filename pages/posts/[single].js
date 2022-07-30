@@ -1,9 +1,9 @@
 import PostSingle from "@layouts/PostSingle";
-import { getAllSlug, getSinglePages } from "@lib/contents";
+import { getAllPage, getAllSlug, getSinglePages } from "@lib/contents";
 import { parseMDX } from "@lib/utils/mdxParser";
 
 // post single layout
-const Article = ({ post, mdxContent }) => {
+const Article = ({ post, authors, mdxContent, slug }) => {
   const { frontmatter, content } = post[0];
 
   return (
@@ -11,6 +11,8 @@ const Article = ({ post, mdxContent }) => {
       frontmatter={frontmatter}
       content={content}
       mdxContent={mdxContent}
+      authors={authors}
+      slug={slug}
     />
   );
 };
@@ -33,14 +35,17 @@ export const getStaticPaths = () => {
 // get post single content
 export const getStaticProps = async ({ params }) => {
   const { single } = params;
-  const allBlogs = getSinglePages("content/posts");
-  const singlePost = allBlogs.filter((p) => p.slug == single);
-  const mdxContent = await parseMDX(singlePost[0].content);
+  const posts = getSinglePages("content/posts");
+  const post = posts.filter((p) => p.slug == single);
+  const authors = getAllPage("content/authors");
+  const mdxContent = await parseMDX(post[0].content);
 
   return {
     props: {
-      post: singlePost,
+      post: post,
+      authors: authors,
       mdxContent: mdxContent,
+      slug: single,
     },
   };
 };

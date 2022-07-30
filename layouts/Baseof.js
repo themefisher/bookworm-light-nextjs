@@ -15,7 +15,7 @@ const Base = ({
   children,
 }) => {
   const { meta_image, meta_author, meta_description } = config.metadata;
-  const { baseURL } = config.site;
+  const { base_url } = config.site;
   const router = useRouter();
   return (
     <>
@@ -58,7 +58,7 @@ const Base = ({
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`${baseURL}${router.asPath.replace("/", "")}`}
+          content={`${base_url}${router.asPath.replace("/", "")}`}
         />
 
         {/* twitter-title */}

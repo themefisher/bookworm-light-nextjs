@@ -4,10 +4,10 @@ import Link from "next/link";
 
 const Logo = () => {
   // destructuring items from config object
-  const { baseURL, logo, logo_width, logo_height, logo_text, title } =
+  const { base_url, logo, logo_width, logo_height, logo_text, title } =
     config.site;
   return (
-    <Link href={baseURL} passHref>
+    <Link href={base_url} passHref>
       <a className="block">
         {logo ? (
           <Image

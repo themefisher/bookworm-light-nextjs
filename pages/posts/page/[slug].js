@@ -10,31 +10,30 @@ import {
 import { parseMDX } from "@lib/utils/mdxParser";
 import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
-import { useState } from "react";
 
 // blog pagination
-const BlogPagination = ({ blogIndex, posts, authors, page, pagination }) => {
-  const [index] = useState(true);
-  const indexOfLastPost = page * pagination;
+const BlogPagination = ({
+  postIndex,
+  posts,
+  authors,
+  pageIndex,
+  pagination,
+}) => {
+  const indexOfLastPost = pageIndex * pagination;
   const indexOfFirstPost = indexOfLastPost - pagination;
   const numOfPage = Math.ceil(posts.length / pagination);
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-  const { frontmatter, content } = blogIndex;
+  const { frontmatter, content } = postIndex;
   const { title } = frontmatter;
 
   return (
     <Base title="blog">
       <section className="section">
         <div className="container">
-          {markdownify(title, "h1")}
-          <Posts
-            posts={currentPosts}
-            authors={authors}
-            postIndex={blogIndex}
-            index={index}
-          />
-          <Pagination numOfPage={numOfPage} page={page} />
+          {markdownify(title, "h1", "h2 mb-8 text-center")}
+          <Posts posts={currentPosts} authors={authors} />
+          <Pagination numOfPage={numOfPage} pageIndex={pageIndex} />
         </div>
       </section>
     </Base>
@@ -66,20 +65,20 @@ export const getStaticPaths = () => {
 
 // get blog pagination content
 export const getStaticProps = async ({ params }) => {
-  const page = parseInt((params && params.slug) || 1);
+  const pageIndex = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
   const posts = getSinglePages("content/posts");
   const authors = getAllPage("content/authors");
-  const blogIndex = await getListPage("content/posts");
-  const mdxContent = await parseMDX(blogIndex.content);
+  const postIndex = await getListPage("content/posts");
+  const mdxContent = await parseMDX(postIndex.content);
 
   return {
     props: {
       pagination: pagination,
       posts: posts,
       authors: authors,
-      page: page,
-      blogIndex: blogIndex,
+      pageIndex: pageIndex,
+      postIndex: postIndex,
       mdxContent: mdxContent,
     },
   };

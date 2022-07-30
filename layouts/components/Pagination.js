@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
 
-const Pagination = ({ page, numOfPage }) => {
-  const indexPageLink = page === 2;
-  const hasPrevPage = page > 1;
-  const hasNextPage = numOfPage > page;
+const Pagination = ({ pageIndex, numOfPage }) => {
+  const indexPageLink = pageIndex === 2;
+  const hasPrevPage = pageIndex > 1;
+  const hasNextPage = numOfPage > pageIndex;
 
   let pageList = [];
   for (let i = 1; i <= numOfPage; i++) {
@@ -19,7 +19,7 @@ const Pagination = ({ page, numOfPage }) => {
       {/* previous */}
       {hasPrevPage ? (
         <Link
-          href={indexPageLink ? `/posts` : `/posts/page/${page - 1}`}
+          href={indexPageLink ? `/posts` : `/posts/page/${pageIndex - 1}`}
           passHref
         >
           <a className="border border-primary px-2 py-2 text-text">
@@ -61,7 +61,7 @@ const Pagination = ({ page, numOfPage }) => {
       {/* page index */}
       {pageList.map((pagination, i) => (
         <React.Fragment key={`page-${i}`}>
-          {pagination === page ? (
+          {pagination === pageIndex ? (
             <span
               aria-current="page"
               className={`border border-primary bg-primary px-4 py-2 text-white`}
@@ -83,7 +83,7 @@ const Pagination = ({ page, numOfPage }) => {
 
       {/* next page */}
       {hasNextPage ? (
-        <Link href={`/posts/page/${page + 1}`} passHref>
+        <Link href={`/posts/page/${pageIndex + 1}`} passHref>
           <a className="border border-primary px-2 py-2 text-text">
             <span className="sr-only">Next</span>
             <svg

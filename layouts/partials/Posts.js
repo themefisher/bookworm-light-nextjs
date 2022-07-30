@@ -24,7 +24,7 @@ const Posts = ({ posts, authors }) => {
             <li className="mb-2 mr-4 inline-block">
               {authors
                 .filter((author) =>
-                  post.frontmatter.author
+                  post.frontmatter.authors
                     .map((author) => slugify(author))
                     .includes(slugify(author.frontmatter.title))
                 )
@@ -37,7 +37,7 @@ const Posts = ({ posts, authors }) => {
                       <span className="mr-2 align-top">
                         <Image
                           src={author.frontmatter.image}
-                          alt={post.frontmatter.author}
+                          alt={author.frontmatter.title}
                           height={25}
                           width={25}
                           className="h-6 w-6 rounded-full"

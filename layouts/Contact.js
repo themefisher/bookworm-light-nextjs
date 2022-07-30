@@ -46,11 +46,7 @@ const Contact = ({ data }) => {
             <label className="mb-2 block" htmlFor="message">
               Message
             </label>
-            <textarea
-              className="form-textarea w-full"
-              rows="7"
-              placeholder="Message"
-            />
+            <textarea className="form-textarea w-full" rows="7" />
           </div>
           <button className="btn btn-outline-primary">Submit Now</button>
         </form>
