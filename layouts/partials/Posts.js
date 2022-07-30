@@ -8,13 +8,13 @@ const Posts = ({ posts, authors }) => {
   const { summary_length } = config.settings;
   return (
     <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
-      {posts.map((posts, i) => (
+      {posts.map((post, i) => (
         <div key={`key-${i}`} className={i === 0 ? "sm:col-span-2" : undefined}>
-          {posts.frontmatter.image && (
+          {post.frontmatter.image && (
             <Image
               className="rounded-lg"
-              src={posts.frontmatter.image}
-              alt={posts.frontmatter.title}
+              src={post.frontmatter.image}
+              alt={post.frontmatter.title}
               width={i === 0 ? "925" : "445"}
               height={i === 0 ? "475" : "230"}
               layout="responsive"
@@ -24,7 +24,7 @@ const Posts = ({ posts, authors }) => {
             <li className="mb-2 mr-4 inline-block">
               {authors
                 .filter((author) =>
-                  posts.frontmatter.author
+                  post.frontmatter.author
                     .map((author) => slugify(author))
                     .includes(slugify(author.frontmatter.title))
                 )
@@ -37,7 +37,7 @@ const Posts = ({ posts, authors }) => {
                       <span className="mr-2 align-top">
                         <Image
                           src={author.frontmatter.image}
-                          alt={posts.frontmatter.author}
+                          alt={post.frontmatter.author}
                           height={25}
                           width={25}
                           className="h-6 w-6 rounded-full"
@@ -49,11 +49,11 @@ const Posts = ({ posts, authors }) => {
                 ))}
             </li>
             <li className="mb-2 mr-4 inline-block">
-              {dateFormat(new Date(posts.frontmatter.date))}
+              {dateFormat(new Date(post.frontmatter.date))}
             </li>
             <li className="mb-2 mr-4 inline-block">
               <ul>
-                {posts.frontmatter.categories.map((category, i) => (
+                {post.frontmatter.categories.map((category, i) => (
                   <li className="inline-block" key={`category-${i}`}>
                     <Link href={`/categories/${slugify(category)}`}>
                       <a className="mr-3 hover:text-primary">
@@ -66,14 +66,14 @@ const Posts = ({ posts, authors }) => {
             </li>
           </ul>
           <h3 className="mb-2">
-            <Link href={`/posts/${posts.slug}`} passHref>
+            <Link href={`/posts/${post.slug}`} passHref>
               <a className="block hover:text-primary">
-                {posts.frontmatter.title}
+                {post.frontmatter.title}
               </a>
             </Link>
           </h3>
           <p className="text-text">
-            {posts.content.slice(0, Number(summary_length))}...
+            {post.content.slice(0, Number(summary_length))}...
           </p>
         </div>
       ))}

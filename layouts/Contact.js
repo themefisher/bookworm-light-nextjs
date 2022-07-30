@@ -6,25 +6,53 @@ const Contact = ({ data }) => {
 
   return (
     <section className="section">
-      <div className="container">
-        {markdownify(title, "h1")}
-        <form>
-          <input
-            className="block"
-            name="name"
-            type="text"
-            placeholder="Name"
-            required
-          />
-          <input
-            className="block"
-            name="email"
-            type="email"
-            placeholder="Email"
-            required
-          />
-          <textarea className="block" rows="7" placeholder="Message" />
-          <button className="btn">Submit Now</button>
+      <div className="container max-w-[700px]">
+        {markdownify(title, "h1", "h2 mb-8 text-center")}
+        <form className="contact-form">
+          <div className="mb-6">
+            <label className="mb-2 block" htmlFor="name">
+              Name
+            </label>
+            <input
+              className="form-input w-full"
+              name="name"
+              type="text"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label className="mb-2 block" htmlFor="email">
+              Email
+            </label>
+            <input
+              className="form-input w-full"
+              name="email"
+              type="email"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label className="mb-2 block" htmlFor="subject">
+              Subject
+            </label>
+            <input
+              className="form-input w-full"
+              name="subject"
+              type="text"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label className="mb-2 block" htmlFor="message">
+              Message
+            </label>
+            <textarea
+              className="form-textarea w-full"
+              rows="7"
+              placeholder="Message"
+            />
+          </div>
+          <button className="btn btn-outline-primary">Submit Now</button>
         </form>
       </div>
     </section>

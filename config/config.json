@@ -11,7 +11,8 @@
 
   "settings": {
     "pagination": 2,
-    "summary_length": 200
+    "summary_length": 200,
+    "blog_folder": "posts"
   },
 
   "params": {

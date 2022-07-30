@@ -1,3 +1,11 @@
 .btn {
-  @apply relative inline-block rounded-lg border-2 border-primary bg-white px-5 py-2 font-semibold;
+  @apply inline-block rounded-lg border px-5 py-2 font-semibold transition;
+}
+
+.btn-primary {
+  @apply bg-primary text-white;
+}
+
+.btn-outline-primary {
+  @apply border-primary bg-transparent hover:bg-primary hover:text-white;
 }
