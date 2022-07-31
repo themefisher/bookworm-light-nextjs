@@ -1,8 +1,10 @@
+import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { getSinglePages } from "@lib/contents";
 import { getTaxonomy } from "@lib/taxonomies";
 import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
+const { blog_folder } = config.settings;
 
 // tag page
 const Tag = ({ tag, posts, authors }) => {
@@ -26,7 +28,7 @@ export default Tag;
 
 // tag page routes
 export const getStaticPaths = () => {
-  const allCategories = getTaxonomy("content/posts", "tags");
+  const allCategories = getTaxonomy(`content/${blog_folder}`, "tags");
 
   const paths = allCategories.map((tag) => ({
     params: {
@@ -39,7 +41,7 @@ export const getStaticPaths = () => {
 
 // tag page data
 export const getStaticProps = ({ params }) => {
-  const posts = getSinglePages("content/posts");
+  const posts = getSinglePages(`content/${blog_folder}`);
   const filterPosts = posts.filter((post) =>
     post.frontmatter.tags.includes(params.tag)
   );

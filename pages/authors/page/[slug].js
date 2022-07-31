@@ -26,7 +26,11 @@ const AuthorPagination = ({
         <div className="container max-w-[1000px] text-center">
           {markdownify(title, "h1", "h2 mb-16")}
           <Authors authors={currentAuthors} />
-          <Pagination totalPages={totalPages} currentPage={currentPage} />
+          <Pagination
+            slug={"authors"}
+            totalPages={totalPages}
+            currentPage={currentPage}
+          />
         </div>
       </section>
     </Base>

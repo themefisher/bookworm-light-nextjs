@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Posts = ({ posts, authors }) => {
-  const { summary_length } = config.settings;
+  const { summary_length, blog_folder } = config.settings;
   return (
     <div className="row space-y-16">
       {posts.map((post, i) => (
@@ -69,7 +69,7 @@ const Posts = ({ posts, authors }) => {
             </li>
           </ul>
           <h3 className="mb-2">
-            <Link href={`/posts/${post.slug}`} passHref>
+            <Link href={`/${blog_folder}/${post.slug}`} passHref>
               <a className="block hover:text-primary">
                 {post.frontmatter.title}
               </a>
