@@ -65,7 +65,6 @@ export const getStaticProps = async ({ params }) => {
   const authors = getSinglePages("content/authors");
   const postIndex = await getListPage("content/posts");
   const mdxContent = await parseMDX(postIndex.content);
-  console.log("posts", posts);
 
   return {
     props: {

@@ -76,7 +76,7 @@ const Posts = ({ posts, authors }) => {
             </Link>
           </h3>
           <p className="text-text">
-            {post.content.slice(0, Number(summary_length))}...
+            {post.content && post.content.slice(0, Number(summary_length))}...
           </p>
         </div>
       ))}
