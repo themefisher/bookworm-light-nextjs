@@ -1,11 +1,12 @@
+import { markdownify } from "@lib/utils/textConverter";
 import Image from "next/image";
 import Link from "next/link";
 
 const Authors = ({ authors }) => {
   return (
-    <div className="grid grid-cols-1 place-content-center gap-x-8 gap-y-16 sm:grid-cols-3">
+    <div className="row justify-center">
       {authors.map((author, i) => (
-        <div className="flex flex-col items-center" key={`key-${i}`}>
+        <div className="col-12 mb-8 sm:col-6 md:col-4" key={`key-${i}`}>
           {author.frontmatter.image && (
             <div className="mb-4">
               <Image
@@ -25,6 +26,7 @@ const Authors = ({ authors }) => {
               </a>
             </Link>
           </h3>
+          {markdownify(author.content.slice(0, 120), "p")}
         </div>
       ))}
     </div>

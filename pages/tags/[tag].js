@@ -1,6 +1,7 @@
 import Base from "@layouts/Baseof";
 import { getSinglePages } from "@lib/contents";
 import { getTaxonomy } from "@lib/taxonomies";
+import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 
 // tag page
@@ -8,8 +9,12 @@ const Tag = ({ tag, posts, authors }) => {
   return (
     <Base title={tag}>
       <div className="section">
-        <div className="container">
-          <h1>Showing posts from {tag} tag</h1>
+        <div className="container max-w-[1000px]">
+          {markdownify(
+            `Showing posts from ${tag} tag`,
+            "h1",
+            "h2 mb-8 text-center"
+          )}
           <Posts posts={posts} authors={authors} />
         </div>
       </div>

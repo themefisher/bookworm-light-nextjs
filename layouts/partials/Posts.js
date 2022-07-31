@@ -7,9 +7,12 @@ import Link from "next/link";
 const Posts = ({ posts, authors }) => {
   const { summary_length } = config.settings;
   return (
-    <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
+    <div className="row space-y-16">
       {posts.map((post, i) => (
-        <div key={`key-${i}`} className={i === 0 ? "sm:col-span-2" : undefined}>
+        <div
+          key={`key-${i}`}
+          className={i === 0 ? "col-12" : "col-12 sm:col-6"}
+        >
           {post.frontmatter.image && (
             <Image
               className="rounded-lg"
