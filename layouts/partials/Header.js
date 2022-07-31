@@ -1,15 +1,33 @@
 import Logo from "@components/Logo";
 import menu from "@config/menu.json";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
 const Header = () => {
   // distructuring the main menu from menu object
   const { main } = menu;
 
+  // states
+  const [navFixed, setNavFixed] = useState(false);
+
+  useEffect(() => {
+    const changeNavbarBackground = () => {
+      if (window.pageYOffset >= 1) {
+        setNavFixed(true);
+      } else {
+        setNavFixed(false);
+      }
+    };
+    window.addEventListener("scroll", changeNavbarBackground);
+  });
+
   return (
-    <header className="pt-16">
+    <header
+      className={`sticky top-0 z-50 bg-white transition-all ${
+        navFixed ? "pt-2 shadow" : "pt-8 md:pt-16"
+      }`}
+    >
       <nav className="container flex flex-wrap items-center justify-between">
         {/* logo */}
         <div className="order-0">
@@ -78,7 +96,7 @@ const Header = () => {
             </React.Fragment>
           ))}
         </ul>
-        <div className="order-1 ml-auto md:order-2 md:ml-0">
+        <div className="order-1 ml-auto pr-3 md:order-2 md:ml-0">
           <IoSearch />
         </div>
       </nav>
