@@ -1,7 +1,9 @@
+import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { humanize, markdownify } from "@lib/utils/textConverter";
 import { getTaxonomy } from "lib/taxonomies";
 import Link from "next/link";
+const { blog_folder } = config.settings;
 
 const Tags = ({ tags }) => {
   return (
@@ -29,7 +31,7 @@ const Tags = ({ tags }) => {
 export default Tags;
 
 export const getStaticProps = () => {
-  const tags = getTaxonomy("content/posts", "tags");
+  const tags = getTaxonomy(`content/${blog_folder}`, "tags");
 
   return {
     props: {

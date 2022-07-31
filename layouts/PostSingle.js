@@ -31,15 +31,17 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
                       key={`author-${i}`}
                     >
                       <a className="inline-block hover:text-primary">
-                        <span className="mr-2 align-top">
-                          <Image
-                            src={author.frontmatter.image}
-                            alt={author.frontmatter.title}
-                            height={25}
-                            width={25}
-                            className="h-6 w-6 rounded-full"
-                          />
-                        </span>
+                        {author.frontmatter.image && (
+                          <span className="mr-2 align-top">
+                            <Image
+                              src={author.frontmatter.image}
+                              alt={author.frontmatter.title}
+                              height={25}
+                              width={25}
+                              className="h-6 w-6 rounded-full"
+                            />
+                          </span>
+                        )}
                         <span>{author.frontmatter.title}</span>
                       </a>
                     </Link>

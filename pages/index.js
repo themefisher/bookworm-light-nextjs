@@ -3,6 +3,7 @@ import Base from "@layouts/Baseof";
 import { getListPage, getSinglePages } from "@lib/contents";
 import { sortByDate } from "@lib/utils/sortFunctions";
 import Posts from "@partials/Posts";
+const { blog_folder } = config.settings;
 
 const Home = ({ posts, authors }) => {
   const sortPostByDate = sortByDate(posts);
@@ -26,7 +27,7 @@ export const getStaticProps = async () => {
   const homepage = await getListPage("content");
   const { frontmatter } = homepage;
   const { banner } = frontmatter;
-  const posts = getSinglePages("content/posts");
+  const posts = getSinglePages(`content/${blog_folder}`);
   const authors = getSinglePages("content/authors");
 
   return {
