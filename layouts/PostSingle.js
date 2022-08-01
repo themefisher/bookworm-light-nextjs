@@ -98,6 +98,7 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
               />
             </div>
           </article>
+          <div className="similar-post"></div>
         </div>
       </section>
     </Base>
