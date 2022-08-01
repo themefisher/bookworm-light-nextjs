@@ -1,18 +1,17 @@
 import Logo from "@components/Logo";
 import menu from "@config/menu.json";
-import Search from "@layouts/Search";
+import SearchModal from "@layouts/partials/SearchModal";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
 const Header = () => {
-  const [modal, setModal] = useState(false);
-
   // distructuring the main menu from menu object
   const { main } = menu;
 
-  // states
+  // states declaration
   const [navFixed, setNavFixed] = useState(false);
+  const [searchModal, setSearchModal] = useState(false);
 
   useEffect(() => {
     const changeNavbarBackground = () => {
@@ -27,8 +26,12 @@ const Header = () => {
 
   return (
     <>
-      <header className=" pt-16">
-        <nav className="container flex flex-wrap items-center justify-between">
+      <header
+        className={`sticky top-0 z-50 bg-white py-2 transition-all ${
+          navFixed ? "shadow" : "pt-8 md:pt-16"
+        }`}
+      >
+        <nav className="navbar container">
           {/* logo */}
           <div className="order-0">
             <Logo />
@@ -62,7 +65,7 @@ const Header = () => {
 
           <ul
             id="nav-menu"
-            className="navbar order-3 hidden w-full md:order-1 md:flex md:w-auto md:space-x-2"
+            className="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto md:space-x-2"
           >
             {main.map((menu, i) => (
               <React.Fragment key={`menu-${i}`}>
@@ -96,17 +99,23 @@ const Header = () => {
               </React.Fragment>
             ))}
           </ul>
-          <div
-            className="order-1 ml-auto cursor-pointer hover:text-primary md:order-2 md:ml-0"
-            onClick={() => {
-              setModal(true);
-            }}
-          >
-            <IoSearch />
+          <div className="order-1 ml-auto md:order-2 md:ml-0">
+            <div
+              className="cursor-pointer p-2 text-xl text-text-dark hover:text-primary"
+              onClick={() => {
+                setSearchModal(true);
+              }}
+            >
+              <IoSearch />
+            </div>
           </div>
+
+          <SearchModal
+            searchModal={searchModal}
+            setSearchModal={setSearchModal}
+          />
         </nav>
       </header>
-      <Search modal={modal} setModal={setModal} />
     </>
   );
 };

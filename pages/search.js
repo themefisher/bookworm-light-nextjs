@@ -1,38 +1,49 @@
 import Base from "@layouts/Baseof";
 import Posts from "@layouts/partials/Posts";
 import { getSinglePages } from "@lib/contents";
-import { useAppContext } from "context/state";
+import { useSearchContext } from "context/state";
 import { useRouter } from "next/router";
 
 const SearchPage = ({ authors }) => {
   const router = useRouter();
   const { query } = router;
-  const { posts } = useAppContext();
+  const keyword = String(query.key).toLowerCase();
+  const { posts } = useSearchContext();
 
-  let searchItem = posts.filter((product) => {
-    if (
-      product.frontmatter.title.toLowerCase().includes(query.key) ||
-      product.frontmatter.title.toUpperCase().includes(query.key) ||
-      product.frontmatter.title.includes(query.key)
+  const searchResults = posts.filter((product) => {
+    if (product.frontmatter.title.toLowerCase().includes(keyword)) {
+      return product;
+    } else if (
+      product.frontmatter.categories.find((category) =>
+        category.toLowerCase().includes(keyword)
+      )
     ) {
       return product;
     } else if (
-      product.frontmatter.categories.find((c) => c.includes(query.key))
+      product.frontmatter.tags.find((tag) =>
+        tag.toLowerCase().includes(keyword)
+      )
     ) {
       return product;
-    } else if (product.frontmatter.tags.find((c) => c.includes(query.key))) {
+    } else if (product.content.toLowerCase().includes(keyword)) {
       return product;
     }
   });
 
   return (
-    <Base>
+    <Base title={`Search results for ${query.key}`}>
       <div className="section">
         <div className="container max-w-[1000px]">
-          <h2 className="mb-2">
+          <h1 className="h2 mb-8 text-center">
             Search results for <span className="text-primary">{query.key}</span>
-          </h2>
-          <Posts posts={searchItem} authors={authors} />
+          </h1>
+          {searchResults.length > 1 ? (
+            <Posts posts={searchResults} authors={authors} />
+          ) : (
+            <div className="py-24 text-center text-h3 shadow">
+              No Search Found
+            </div>
+          )}
         </div>
       </div>
     </Base>
@@ -40,6 +51,8 @@ const SearchPage = ({ authors }) => {
 };
 
 export default SearchPage;
+
+// get authors data
 export const getStaticProps = () => {
   const authors = getSinglePages("content/authors");
   return {

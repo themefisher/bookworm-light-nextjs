@@ -7,6 +7,7 @@
       "@partials/*": ["layouts/partials/*"],
       "@shortcodes/*": ["layouts/shortcodes/*"],
       "@config/*": ["config/*"],
+      "@json/*": ["json/*"],
       "@lib/*": ["lib/*"]
     }
   }

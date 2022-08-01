@@ -2,7 +2,6 @@ import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { getSinglePages } from "@lib/contents";
 import { getTaxonomy } from "@lib/taxonomies";
-import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
 
@@ -12,11 +11,10 @@ const Category = ({ category, posts, authors }) => {
     <Base title={category}>
       <div className="section">
         <div className="container max-w-[1000px]">
-          {markdownify(
-            `Showing posts from ${category} category`,
-            "h1",
-            "h2 mb-8 text-center"
-          )}
+          <h1 className="h2 mb-8 text-center">
+            Showing posts from <span className="text-primary">{category}</span>{" "}
+            category
+          </h1>
           <Posts posts={posts} authors={authors} />
         </div>
       </div>

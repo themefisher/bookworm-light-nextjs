@@ -1,15 +1,17 @@
 import { createContext, useContext } from "react";
 import posts from "../json/posts.json";
 
-const AppContext = createContext();
+const SearchContext = createContext();
 
 export const JsonContext = ({ children }) => {
   const state = {
     posts,
   };
-  return <AppContext.Provider value={state}>{children}</AppContext.Provider>;
+  return (
+    <SearchContext.Provider value={state}>{children}</SearchContext.Provider>
+  );
 };
 
-export const useAppContext = () => {
-  return useContext(AppContext);
+export const useSearchContext = () => {
+  return useContext(SearchContext);
 };
