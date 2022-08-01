@@ -14,7 +14,7 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
   return (
     <Base title={title} description={description}>
       <section className="section">
-        <div className="container max-w-[1000px]">
+        <div className="container">
           <article className="text-center">
             {markdownify(title, "h1", "h2")}
             <ul className="mt-4 mb-8 text-text">
@@ -29,6 +29,7 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
                     <Link
                       href={`/authors/${slugify(author.frontmatter.title)}`}
                       key={`author-${i}`}
+                      passHref
                     >
                       <a className="inline-block hover:text-primary">
                         {author.frontmatter.image && (
@@ -54,7 +55,7 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
                 <ul>
                   {categories.map((category, i) => (
                     <li className="inline-block" key={`category-${i}`}>
-                      <Link href={`/categories/${slugify(category)}`}>
+                      <Link href={`/categories/${slugify(category)}`} passHref>
                         <a className="mr-3 hover:text-primary">
                           &#9635; {humanize(category)}
                         </a>

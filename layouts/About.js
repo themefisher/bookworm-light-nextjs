@@ -10,7 +10,7 @@ const About = ({ data }) => {
 
   return (
     <section className="section">
-      <div className="container max-w-[1000px] text-center">
+      <div className="container text-center">
         {image && (
           <div className="mb-8">
             <Image

@@ -75,6 +75,7 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
               ) : (
                 <Link
                   href={i === 0 ? `/${slug}` : `/${slug}/page/${pagination}`}
+                  passHref
                 >
                   <a
                     aria-current="page"

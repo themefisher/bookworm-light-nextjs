@@ -12,7 +12,7 @@ const Home = ({ posts, authors }) => {
   return (
     <Base title={title}>
       <div className="section">
-        <div className="container max-w-[1000px]">
+        <div className="container">
           <Posts posts={sortPostByDate.slice(0, showPost)} authors={authors} />
         </div>
       </div>

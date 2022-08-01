@@ -15,6 +15,7 @@ const Logo = () => {
             height={logo_height}
             src={logo}
             alt={title}
+            priority
           />
         ) : logo_text ? (
           logo_text

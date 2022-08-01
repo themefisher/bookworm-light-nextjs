@@ -10,7 +10,7 @@ const Category = ({ category, posts, authors }) => {
   return (
     <Base title={category}>
       <div className="section">
-        <div className="container max-w-[1000px]">
+        <div className="container">
           <h1 className="h2 mb-8 text-center">
             Showing posts from <span className="text-primary">{category}</span>{" "}
             category

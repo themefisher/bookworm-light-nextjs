@@ -14,7 +14,7 @@ const AuthorSingle = ({ frontmatter, content, mdxContent }) => {
       description={description ? description : content.slice(0, 120)}
     >
       <section className="section">
-        <div className="container max-w-[1000px]">
+        <div className="container">
           <div className="mb-4 text-center md:px-24">
             {image && (
               <div className="mb-8">

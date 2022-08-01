@@ -7,7 +7,7 @@ const Default = ({ data }) => {
   const { title } = frontmatter;
   return (
     <section className="section">
-      <div className="container max-w-[1000px]">
+      <div className="container">
         {markdownify(title, "h1", "h2 mb-8 text-center")}
         <div className="content">
           <MDXRemote {...mdxContent} components={shortcodes} />

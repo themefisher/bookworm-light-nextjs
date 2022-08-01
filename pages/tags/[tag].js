@@ -10,7 +10,7 @@ const Tag = ({ tag, posts, authors }) => {
   return (
     <Base title={tag}>
       <div className="section">
-        <div className="container max-w-[1000px]">
+        <div className="container">
           <h1 className="h2 mb-8 text-center">
             Showing posts from <span className="text-primary">{tag}</span> tag
           </h1>

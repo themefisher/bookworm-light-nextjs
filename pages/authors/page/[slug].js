@@ -23,7 +23,7 @@ const AuthorPagination = ({
   return (
     <Base title={title}>
       <section className="section">
-        <div className="container max-w-[1000px] text-center">
+        <div className="container text-center">
           {markdownify(title, "h1", "h2 mb-16")}
           <Authors authors={currentAuthors} />
           <Pagination
