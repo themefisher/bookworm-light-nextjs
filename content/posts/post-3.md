@@ -2,7 +2,7 @@
 title: What you need to know about Photography
 date: 2022-04-02T06:00:00+00:00
 image: "/images/posts/03.jpg"
-categories: ["fantasy"]
+categories: ["art"]
 authors: ["Linda Lanester"]
 tags: ["diy", "toy"]
 draft: false

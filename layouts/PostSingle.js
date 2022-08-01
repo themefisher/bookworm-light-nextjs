@@ -1,4 +1,5 @@
 import { dateFormat } from "@lib/utils/dateFormat";
+import { similerItems } from "@lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@lib/utils/textConverter";
 import { shortcodes } from "@shortcodes/all";
 import { MDXRemote } from "next-mdx-remote";
@@ -6,10 +7,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Base from "./Baseof";
 import Share from "./components/Share";
+import SimilarPosts from "./partials/similarPosts";
 
-const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
+const PostSingle = ({ post, mdxContent, slug, posts, authors }) => {
+  const { frontmatter, content } = post[0];
   let { description, title, date, image, categories, tags } = frontmatter;
   description = description ? description : content.slice(0, 120);
+
+  const similarPosts = similerItems(post, posts, slug);
 
   return (
     <Base title={title} description={description}>
@@ -98,7 +103,12 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
               />
             </div>
           </article>
-          <div className="similar-post"></div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <h2 className="mb-8 text-center">Similar Posts</h2>
+          <SimilarPosts posts={similarPosts} authors={authors} />
         </div>
       </section>
     </Base>
