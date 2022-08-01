@@ -8,11 +8,17 @@ const Logo = () => {
     config.site;
   return (
     <Link href={base_url} passHref>
-      <a className="block">
+      <a
+        className="navbar-brand block"
+        style={{
+          height: logo_height.replace("px", "") + "px",
+          width: logo_width.replace("px", "") + "px",
+        }}
+      >
         {logo ? (
           <Image
-            width={logo_width}
-            height={logo_height}
+            width={logo_width.replace("px", "") * 2}
+            height={logo_height.replace("px", "") * 2}
             src={logo}
             alt={title}
             priority

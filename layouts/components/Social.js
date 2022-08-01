@@ -64,14 +64,24 @@ const Social = ({ source, className }) => {
     <ul className={className}>
       {facebook && (
         <li className="inline-block">
-          <a href={facebook} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="facebook"
+            href={facebook}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoFacebook />
           </a>
         </li>
       )}
       {twitter && (
         <li className="inline-block">
-          <a href={twitter} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="twitter"
+            href={twitter}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoTwitter />
           </a>
         </li>
@@ -79,6 +89,7 @@ const Social = ({ source, className }) => {
       {instagram && (
         <li className="inline-block">
           <a
+            aria-label="instagram"
             href={instagram}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -89,42 +100,72 @@ const Social = ({ source, className }) => {
       )}
       {youtube && (
         <li className="inline-block">
-          <a href={youtube} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="youtube"
+            href={youtube}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoYoutube />
           </a>
         </li>
       )}
       {linkedin && (
         <li className="inline-block">
-          <a href={linkedin} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="linkedin"
+            href={linkedin}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoLinkedin />
           </a>
         </li>
       )}
       {github && (
         <li className="inline-block">
-          <a href={github} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="github"
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoGithub />
           </a>
         </li>
       )}
       {gitlab && (
         <li className="inline-block">
-          <a href={gitlab} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="gitlab"
+            href={gitlab}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoGitlab />
           </a>
         </li>
       )}
       {medium && (
         <li className="inline-block">
-          <a href={medium} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="medium"
+            href={medium}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoMedium />
           </a>
         </li>
       )}
       {codepen && (
         <li className="inline-block">
-          <a href={codepen} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="codepen"
+            href={codepen}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoCodepen />
           </a>
         </li>
@@ -132,6 +173,7 @@ const Social = ({ source, className }) => {
       {bitbucket && (
         <li className="inline-block">
           <a
+            aria-label="bitbucket"
             href={bitbucket}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -142,14 +184,24 @@ const Social = ({ source, className }) => {
       )}
       {dribbble && (
         <li className="inline-block">
-          <a href={dribbble} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="dribbble"
+            href={dribbble}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoDribbble />
           </a>
         </li>
       )}
       {behance && (
         <li className="inline-block">
-          <a href={behance} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="behance"
+            href={behance}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoBehance />
           </a>
         </li>
@@ -157,6 +209,7 @@ const Social = ({ source, className }) => {
       {pinterest && (
         <li className="inline-block">
           <a
+            aria-label="pinterest"
             href={pinterest}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -168,6 +221,7 @@ const Social = ({ source, className }) => {
       {soundcloud && (
         <li className="inline-block">
           <a
+            aria-label="soundcloud"
             href={soundcloud}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -178,49 +232,84 @@ const Social = ({ source, className }) => {
       )}
       {tumblr && (
         <li className="inline-block">
-          <a href={tumblr} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="tumblr"
+            href={tumblr}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoTumblr />
           </a>
         </li>
       )}
       {reddit && (
         <li className="inline-block">
-          <a href={reddit} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="reddit"
+            href={reddit}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoReddit />
           </a>
         </li>
       )}
       {vk && (
         <li className="inline-block">
-          <a href={vk} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="vk"
+            href={vk}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoVk />
           </a>
         </li>
       )}
       {whatsapp && (
         <li className="inline-block">
-          <a href={whatsapp} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="whatsapp"
+            href={whatsapp}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoWhatsapp />
           </a>
         </li>
       )}
       {snapchat && (
         <li className="inline-block">
-          <a href={snapchat} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="snapchat"
+            href={snapchat}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoSnapchat />
           </a>
         </li>
       )}
       {vimeo && (
         <li className="inline-block">
-          <a href={vimeo} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="vimeo"
+            href={vimeo}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoVimeo />
           </a>
         </li>
       )}
       {tiktok && (
         <li className="inline-block">
-          <a href={tiktok} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="tiktok"
+            href={tiktok}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoTiktok />
           </a>
         </li>
@@ -228,6 +317,7 @@ const Social = ({ source, className }) => {
       {foursquare && (
         <li className="inline-block">
           <a
+            aria-label="foursquare"
             href={foursquare}
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -238,42 +328,62 @@ const Social = ({ source, className }) => {
       )}
       {skype && (
         <li className="inline-block">
-          <a href={skype} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="skype"
+            href={skype}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoSkype />
           </a>
         </li>
       )}
       {website && (
         <li className="inline-block">
-          <a href={website} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="website"
+            href={website}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoGlobeOutline />
           </a>
         </li>
       )}
       {rss && (
         <li className="inline-block">
-          <a href={rss} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="rss feed"
+            href={rss}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLogoRss />
           </a>
         </li>
       )}
       {email && (
         <li className="inline-block">
-          <a href={`mailto:${email}`}>
+          <a aria-label="email" href={`mailto:${email}`}>
             <IoMail />
           </a>
         </li>
       )}
       {phone && (
         <li className="inline-block">
-          <a href={`tel:${phone}`}>
+          <a aria-label="telephone" href={`tel:${phone}`}>
             <IoCall />
           </a>
         </li>
       )}
       {address && (
         <li className="inline-block">
-          <a href={address} target="_blank" rel="noopener noreferrer nofollow">
+          <a
+            aria-label="location"
+            href={address}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
             <IoLocation />
           </a>
         </li>

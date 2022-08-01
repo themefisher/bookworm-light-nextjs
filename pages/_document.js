@@ -8,7 +8,7 @@ const Document = () => {
   const pf = theme.fonts.font_family.primary;
   const sf = theme.fonts.font_family.secondary;
   return (
-    <Html>
+    <Html lang="en">
       <Head>
         <link rel="shortcut icon" href={favicon} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

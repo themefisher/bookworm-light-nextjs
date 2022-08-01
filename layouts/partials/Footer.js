@@ -11,11 +11,13 @@ const Footer = () => {
     <footer className="section bg-dark">
       <div className="container text-center">
         {/* footer menu */}
-        <ul className="mb-8 space-x-8">
+        <ul className="mb-8 space-x-4">
           {menu.footer.map((menu) => (
             <li className="inline-block" key={menu.name}>
               <Link href={menu.url} passHref>
-                <a className="text-text-light hover:text-white">{menu.name}</a>
+                <a className="p-4 text-text-light hover:text-white">
+                  {menu.name}
+                </a>
               </Link>
             </li>
           ))}
