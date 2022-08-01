@@ -108,7 +108,7 @@ const PostSingle = ({ post, mdxContent, slug, posts, authors }) => {
       <section className="section">
         <div className="container">
           <h2 className="mb-8 text-center">Similar Posts</h2>
-          <SimilarPosts posts={similarPosts} authors={authors} />
+          <SimilarPosts posts={similarPosts} />
         </div>
       </section>
     </Base>
