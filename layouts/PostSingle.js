@@ -6,7 +6,7 @@ import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Link from "next/link";
 import Share from "./components/Share";
-import SimilarPosts from "./partials/similarPosts";
+import SimilarPosts from "./partials/SimilarPosts";
 
 const PostSingle = ({ post, posts, authors, slug }) => {
   const { frontmatter, content, mdxContent } = post;
