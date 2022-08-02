@@ -21,9 +21,7 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
           {/* previous */}
           {hasPrevPage ? (
             <Link
-              href={
-                indexPageLink ? `/${slug}` : `/${slug}/page/${currentPage - 1}`
-              }
+              href={indexPageLink ? `/` : `/page/${currentPage - 1}`}
               passHref
             >
               <a className="border border-primary px-2 py-2 text-text">
@@ -73,10 +71,7 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
                   {pagination}
                 </span>
               ) : (
-                <Link
-                  href={i === 0 ? `/${slug}` : `/${slug}/page/${pagination}`}
-                  passHref
-                >
+                <Link href={i === 0 ? `/` : `/page/${pagination}`} passHref>
                   <a
                     aria-current="page"
                     className={`border border-primary px-4 py-2 text-text`}
@@ -90,7 +85,7 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
 
           {/* next page */}
           {hasNextPage ? (
-            <Link href={`/${slug}/page/${currentPage + 1}`} passHref>
+            <Link href={`/page/${currentPage + 1}`} passHref>
               <a className="border border-primary px-2 py-2 text-text">
                 <span className="sr-only">Next</span>
                 <svg
