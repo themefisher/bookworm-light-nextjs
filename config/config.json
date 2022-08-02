@@ -10,7 +10,7 @@
   },
 
   "settings": {
-    "pagination": 2,
+    "pagination": 3,
     "summary_length": 200,
     "blog_folder": "posts"
   },

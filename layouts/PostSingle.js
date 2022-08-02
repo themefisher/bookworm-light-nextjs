@@ -5,15 +5,13 @@ import { shortcodes } from "@shortcodes/all";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Link from "next/link";
-import Base from "./Baseof";
 import Share from "./components/Share";
 import SimilarPosts from "./partials/similarPosts";
 
-const PostSingle = ({ post, posts, authors }) => {
-  const { frontmatter, content, mdxContent, slug } = post;
+const PostSingle = ({ post, posts, authors, slug }) => {
+  const { frontmatter, content, mdxContent } = post;
   let { description, title, date, image, categories, tags } = frontmatter;
   description = description ? description : content.slice(0, 120);
-
   const similarPosts = similerItems(post, posts, slug);
 
   return (
@@ -89,7 +87,7 @@ const PostSingle = ({ post, posts, authors }) => {
                   <li className="inline-block" key={`tag-${i}`}>
                     <Link href={`/tags/${slugify(tag)}`} passHref>
                       <a className="block rounded-lg bg-light px-4 py-2 font-semibold text-text-dark hover:text-primary">
-                        {humanize(tag)}
+                        #{humanize(tag)}
                       </a>
                     </Link>
                   </li>

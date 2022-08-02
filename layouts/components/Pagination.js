@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Pagination = ({ slug, currentPage, totalPages }) => {
+const Pagination = ({ section, currentPage, totalPages }) => {
   const indexPageLink = currentPage === 2;
   const hasPrevPage = currentPage > 1;
   const hasNextPage = totalPages > currentPage;
@@ -15,19 +15,23 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
     <>
       {totalPages > 1 && (
         <nav
-          className="mb-4 flex justify-center -space-x-px"
+          className="mb-4 flex justify-center space-x-4"
           aria-label="Pagination"
         >
           {/* previous */}
           {hasPrevPage ? (
             <Link
-              href={indexPageLink ? `/` : `/page/${currentPage - 1}`}
+              href={
+                indexPageLink
+                  ? `${section ? "/" + section : "/"}`
+                  : `${section ? "/" + section : ""}/page/${currentPage - 1}`
+              }
               passHref
             >
-              <a className="border border-primary px-2 py-2 text-text">
+              <a className="rounded-lg border border-primary px-2 py-2 text-text-dark">
                 <span className="sr-only">Previous</span>
                 <svg
-                  className="h-5 w-5"
+                  className="mt-1 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -42,10 +46,10 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
               </a>
             </Link>
           ) : (
-            <span className="border border-primary px-2 py-2 text-text">
+            <span className="rounded-lg border border-primary px-2 py-2 text-text-dark">
               <span className="sr-only">Previous</span>
               <svg
-                className="h-5 w-5"
+                className="mt-1 h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -66,15 +70,22 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
               {pagination === currentPage ? (
                 <span
                   aria-current="page"
-                  className={`border border-primary bg-primary px-4 py-2 text-white`}
+                  className={`rounded-lg border border-primary bg-primary px-4 py-2 text-white`}
                 >
                   {pagination}
                 </span>
               ) : (
-                <Link href={i === 0 ? `/` : `/page/${pagination}`} passHref>
+                <Link
+                  href={
+                    i === 0
+                      ? `${section ? "/" + section : "/"}`
+                      : `${section ? "/" + section : ""}/page/${pagination}`
+                  }
+                  passHref
+                >
                   <a
                     aria-current="page"
-                    className={`border border-primary px-4 py-2 text-text`}
+                    className={`rounded-lg border border-primary px-4 py-2 text-text-dark`}
                   >
                     {pagination}
                   </a>
@@ -85,11 +96,14 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
 
           {/* next page */}
           {hasNextPage ? (
-            <Link href={`/page/${currentPage + 1}`} passHref>
-              <a className="border border-primary px-2 py-2 text-text">
+            <Link
+              href={`${section ? "/" + section : ""}/page/${currentPage + 1}`}
+              passHref
+            >
+              <a className="rounded-lg border border-primary px-2 py-2 text-text-dark">
                 <span className="sr-only">Next</span>
                 <svg
-                  className="h-5 w-5"
+                  className="mt-1 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -104,10 +118,10 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
               </a>
             </Link>
           ) : (
-            <span className="border border-primary px-2 py-2 text-text">
+            <span className="rounded-lg border border-primary px-2 py-2 text-text-dark">
               <span className="sr-only">Next</span>
               <svg
-                className="h-5 w-5"
+                className="mt-1 h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"

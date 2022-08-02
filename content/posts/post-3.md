@@ -1,5 +1,6 @@
 ---
 title: What you need to know about Photography
+description: "meta description"
 date: 2022-04-02T06:00:00+00:00
 image: "/images/posts/03.jpg"
 categories: ["art"]

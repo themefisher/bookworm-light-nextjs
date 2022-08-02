@@ -27,7 +27,7 @@ const AuthorPagination = ({
           {markdownify(title, "h1", "h2 mb-16")}
           <Authors authors={currentAuthors} />
           <Pagination
-            slug={"authors"}
+            section="authors"
             totalPages={totalPages}
             currentPage={currentPage}
           />
