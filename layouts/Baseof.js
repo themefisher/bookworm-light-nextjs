@@ -21,7 +21,11 @@ const Base = ({
     <>
       <Head>
         {/* title */}
-        <title>{plainify(meta_title ? meta_title : title)}</title>
+        <title>
+          {plainify(
+            meta_title ? meta_title : title ? title : config.site.title
+          )}
+        </title>
 
         {/* canonical url */}
         {canonical && <link rel="canonical" href={canonical} itemProp="url" />}
@@ -47,7 +51,9 @@ const Base = ({
         {/* og-title */}
         <meta
           property="og:title"
-          content={plainify(meta_title ? meta_title : title)}
+          content={plainify(
+            meta_title ? meta_title : title ? title : config.site.title
+          )}
         />
 
         {/* og-description */}
@@ -64,7 +70,9 @@ const Base = ({
         {/* twitter-title */}
         <meta
           name="twitter:title"
-          content={plainify(meta_title ? meta_title : title)}
+          content={plainify(
+            meta_title ? meta_title : title ? title : config.site.title
+          )}
         />
 
         {/* twitter-description */}
