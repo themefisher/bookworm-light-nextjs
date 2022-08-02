@@ -72,7 +72,7 @@ const Posts = ({ posts, authors }) => {
             </li>
           </ul>
           <h3 className="mb-2">
-            <Link href={`/${blog_folder}/${post.slug}`} passHref>
+            <Link href={`/${post.slug}`} passHref>
               <a className="block hover:text-primary">
                 {post.frontmatter.title}
               </a>

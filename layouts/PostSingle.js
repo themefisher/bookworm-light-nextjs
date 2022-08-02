@@ -9,15 +9,15 @@ import Base from "./Baseof";
 import Share from "./components/Share";
 import SimilarPosts from "./partials/similarPosts";
 
-const PostSingle = ({ post, mdxContent, slug, posts, authors }) => {
-  const { frontmatter, content } = post[0];
+const PostSingle = ({ post, posts, authors }) => {
+  const { frontmatter, content, mdxContent, slug } = post;
   let { description, title, date, image, categories, tags } = frontmatter;
   description = description ? description : content.slice(0, 120);
 
   const similarPosts = similerItems(post, posts, slug);
 
   return (
-    <Base title={title} description={description}>
+    <>
       <section className="section">
         <div className="container">
           <article className="text-center">
@@ -111,7 +111,7 @@ const PostSingle = ({ post, mdxContent, slug, posts, authors }) => {
           <SimilarPosts posts={similarPosts} />
         </div>
       </section>
-    </Base>
+    </>
   );
 };
 
