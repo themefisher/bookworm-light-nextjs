@@ -1,11 +1,9 @@
-import config from "@config/config.json";
 import { dateFormat } from "@lib/utils/dateFormat";
 import { humanize, slugify } from "@lib/utils/textConverter";
 import Image from "next/image";
 import Link from "next/link";
 
 const SimilarPosts = ({ posts }) => {
-  const { blog_folder } = config.settings;
   return (
     <div className="row justify-center">
       {posts.map((post, i) => (
@@ -39,7 +37,7 @@ const SimilarPosts = ({ posts }) => {
             </li>
           </ul>
           <h3 className="h4">
-            <Link href={`/${blog_folder}/${post.slug}`} passHref>
+            <Link href={`/${post.slug}`} passHref>
               <a className="block hover:text-primary">
                 {post.frontmatter.title}
               </a>
