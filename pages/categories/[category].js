@@ -2,6 +2,7 @@ import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { getSinglePages } from "@lib/contents";
 import { getTaxonomy } from "@lib/taxonomies";
+import { slugify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
 
@@ -41,7 +42,9 @@ export const getStaticPaths = () => {
 export const getStaticProps = ({ params }) => {
   const posts = getSinglePages(`content/${blog_folder}`);
   const filterPosts = posts.filter((post) =>
-    post.frontmatter.categories.includes(params.category)
+    post.frontmatter.categories.find((category) =>
+      slugify(category).includes(params.category)
+    )
   );
   const authors = getSinglePages("content/authors");
 

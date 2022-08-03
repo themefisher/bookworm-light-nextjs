@@ -1,31 +1,30 @@
 import Base from "@layouts/Baseof";
 import Posts from "@layouts/partials/Posts";
 import { getSinglePages } from "@lib/contents";
+import { slugify } from "@lib/utils/textConverter";
 import { useSearchContext } from "context/state";
 import { useRouter } from "next/router";
 
 const SearchPage = ({ authors }) => {
   const router = useRouter();
   const { query } = router;
-  const keyword = String(query.key).toLowerCase();
+  const keyword = slugify(query.key);
   const { posts } = useSearchContext();
 
   const searchResults = posts.filter((product) => {
-    if (product.frontmatter.title.toLowerCase().includes(keyword)) {
+    if (slugify(product.frontmatter.title).includes(keyword)) {
       return product;
     } else if (
       product.frontmatter.categories.find((category) =>
-        category.toLowerCase().includes(keyword)
+        slugify(category).includes(keyword)
       )
     ) {
       return product;
     } else if (
-      product.frontmatter.tags.find((tag) =>
-        tag.toLowerCase().includes(keyword)
-      )
+      product.frontmatter.tags.find((tag) => slugify(tag).includes(keyword))
     ) {
       return product;
-    } else if (product.content.toLowerCase().includes(keyword)) {
+    } else if (slugify(product.content).includes(keyword)) {
       return product;
     }
   });
