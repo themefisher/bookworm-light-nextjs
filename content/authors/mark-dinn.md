@@ -1,7 +1,6 @@
 ---
-title: Wanda Maxima
-email: wandamaxima@gmail.com
-image: /images/authors/wanda.jpg
+title: Mark Dinn
+image: /images/authors/mark-dinn.jpg
 description: this is meta description
 social:
   facebook: https://www.facebook.com/

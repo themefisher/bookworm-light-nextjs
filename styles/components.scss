@@ -13,6 +13,17 @@
   @apply mb-5 leading-10;
 }
 
+// image cover
+.img-cover {
+  @apply leading-none;
+  span {
+    @apply h-full w-full;
+  }
+  img {
+    @apply object-cover;
+  }
+}
+
 // social icon style
 .social-icons {
   @apply space-x-4;

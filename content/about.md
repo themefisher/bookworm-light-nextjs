@@ -1,7 +1,7 @@
 ---
-title: "I’m Wanda Maxima, A content writer based in LDN, currently at Bookworm"
+title: "I’m John Doe, A content writer based in LDN, currently at Bookworm"
 meta_title: "About"
-image: "/images/about.jpg"
+image: "/images/author.jpg"
 layout: "about"
 draft: false
 

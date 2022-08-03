@@ -1,7 +1,6 @@
 ---
-title: Linda Lanester
-email: lindalanester@gmail.com
-image: /images/authors/linda.jpg
+title: John Doe
+image: /images/authors/john-doe.jpg
 description: this is meta description
 social:
   facebook: https://www.facebook.com/
