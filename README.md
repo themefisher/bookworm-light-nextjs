@@ -2,7 +2,7 @@
 
 ![bookworm-light](https://demo.gethugothemes.com/thumbnails/bookworm-light.png)
 
-👉🏻[View Live Preview](https://bookworm-light-nextjs.netlify.app/)
+👉🏻[View Live Preview](https://bookworm-light-nextjs.vercel.app/)
 
 <!-- download -->
 ## Download
