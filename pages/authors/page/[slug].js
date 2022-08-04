@@ -46,7 +46,7 @@ export const getStaticPaths = () => {
   const totalPages = Math.round(allSlug.length / pagination);
   let paths = [];
 
-  for (let i = 0; i < totalPages; i++) {
+  for (let i = 1; i < totalPages; i++) {
     paths.push({
       params: {
         slug: (i + 1).toString(),

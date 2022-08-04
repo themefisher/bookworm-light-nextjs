@@ -51,9 +51,7 @@ const PostSingle = ({ post, posts, authors, slug }) => {
                     </Link>
                   ))}
               </li>
-              <li className="mb-2 mr-4 inline-block">
-                {dateFormat(new Date(date))}
-              </li>
+              <li className="mb-2 mr-4 inline-block">{dateFormat(date)}</li>
               <li className="mb-2 mr-4 inline-block">
                 <ul>
                   {categories.map((category, i) => (

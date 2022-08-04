@@ -12,10 +12,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "date-fns": "^2.29.1",
+    "date-fns-tz": "^1.3.6",
     "github-slugger": "^1.4.0",
     "gray-matter": "^4.0.3",
     "marked": "^4.0.18",
-    "moment": "^2.29.4",
     "next": "12.2.3",
     "next-mdx-remote": "^4.1.0",
     "react": "18.2.0",
@@ -28,15 +29,15 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.4",
-    "autoprefixer": "^10.4.7",
-    "eslint": "8.20.0",
+    "autoprefixer": "^10.4.8",
+    "eslint": "8.21.0",
     "eslint-config-next": "12.2.3",
     "jshint": "^2.13.5",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.1.12",
-    "sass": "^1.54.0",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "sass": "^1.54.2",
     "tailwind-bootstrap-grid": "^5.0.1",
-    "tailwindcss": "^3.1.6"
+    "tailwindcss": "^3.1.7"
   }
 }

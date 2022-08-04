@@ -21,6 +21,7 @@ const Posts = ({ posts, authors, className }) => {
               width={i === 0 ? "925" : "445"}
               height={i === 0 ? "475" : "230"}
               layout="responsive"
+              priority={i === 0 ? true : false}
             />
           )}
           <ul className="mt-4 text-text">
@@ -55,7 +56,7 @@ const Posts = ({ posts, authors, className }) => {
                 ))}
             </li>
             <li className="mb-2 mr-4 inline-block">
-              {dateFormat(new Date(post.frontmatter.date))}
+              {dateFormat(post.frontmatter.date)}
             </li>
             <li className="mb-2 mr-4 inline-block">
               <ul>
