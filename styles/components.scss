@@ -24,6 +24,14 @@
   }
 }
 
+// author-image
+.author-image {
+  @apply mr-2 align-top;
+  img {
+    @apply max-h-[25px] max-w-[25px] rounded-full;
+  }
+}
+
 // social icon style
 .social-icons {
   @apply space-x-4;

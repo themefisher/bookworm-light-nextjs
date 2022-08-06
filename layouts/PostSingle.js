@@ -36,13 +36,12 @@ const PostSingle = ({ post, posts, authors, slug }) => {
                     >
                       <a className="inline-block hover:text-primary">
                         {author.frontmatter.image && (
-                          <span className="mr-2 align-top">
+                          <span className="author-image">
                             <Image
                               src={author.frontmatter.image}
                               alt={author.frontmatter.title}
-                              height={25}
-                              width={25}
-                              className="h-6 w-6 rounded-full"
+                              height={50}
+                              width={50}
                             />
                           </span>
                         )}
