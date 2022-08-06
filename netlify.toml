@@ -10,4 +10,4 @@
 # Include all files in all functions
 [functions]
 node_bundler = "esbuild"
-included_files = ["content/*"]
+included_files = ["content/**"]
