@@ -17,7 +17,7 @@ const Base = ({
   children,
 }) => {
   const { meta_image, meta_author, meta_description } = config.metadata;
-  const { base_url } = config.site;
+  const { base_url, favicon } = config.site;
   const router = useRouter();
 
   // import google font css
@@ -41,6 +41,9 @@ const Base = ({
             meta_title ? meta_title : title ? title : config.site.title
           )}
         </title>
+
+        {/* favicon */}
+        <link rel="shortcut icon" href={favicon} />
 
         {/* google font css */}
         <link
