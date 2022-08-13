@@ -1,4 +1,5 @@
 import config from "@config/config.json";
+import NotFound from "@layouts/404";
 import About from "@layouts/About";
 import Base from "@layouts/Baseof";
 import Contact from "@layouts/Contact";
@@ -15,7 +16,7 @@ const { blog_folder } = config.settings;
 
 // for all regular pages
 const RegularPages = ({ slug, data, postSlug, authors, posts }) => {
-  const { title, meta_title, description, image, noindex, canonical } =
+  const { title, meta_title, description, image, noindex, canonical, layout } =
     data.frontmatter;
   const { content } = data;
 
@@ -33,10 +34,12 @@ const RegularPages = ({ slug, data, postSlug, authors, posts }) => {
       {/* single post */}
       {postSlug.includes(slug) ? (
         <PostSingle slug={slug} post={data} authors={authors} posts={posts} />
-      ) : slug === "contact" ? (
-        <Contact data={data} />
-      ) : slug === "about" ? (
+      ) : layout === "404" ? (
+        <NotFound data={data} />
+      ) : layout === "about" ? (
         <About data={data} />
+      ) : layout === "contact" ? (
+        <Contact data={data} />
       ) : (
         <Default data={data} />
       )}
