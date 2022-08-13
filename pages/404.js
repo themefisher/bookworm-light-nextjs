@@ -10,7 +10,7 @@ const notFound = ({ data }) => {
   );
 };
 
-// for regular page data
+// get 404 page data
 export const getStaticProps = async () => {
   const notFoundData = await getRegularPage();
   return {
