@@ -6,6 +6,7 @@ const Logo = () => {
   // destructuring items from config object
   const { base_url, logo, logo_width, logo_height, logo_text, title } =
     config.site;
+
   return (
     <Link href={base_url} passHref>
       <a

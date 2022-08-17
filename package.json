@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "node lib/jsonGenerator.js && next build",
-    "netlify": "next build && next export",
+    "export": "next build && next export",
     "lint": "next lint",
     "start": "next start"
   },
