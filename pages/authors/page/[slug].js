@@ -1,7 +1,7 @@
 import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getListPage, getSinglePages, getSinglePagesSlug } from "@lib/contents";
+import { getListPage, getSinglePages, getSinglePagesSlug } from "@lib/contentParser";
 import { parseMDX } from "@lib/utils/mdxParser";
 import { markdownify } from "@lib/utils/textConverter";
 import Authors from "@partials/Authors";

@@ -1,7 +1,7 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { humanize, markdownify } from "@lib/utils/textConverter";
-import { getTaxonomy } from "lib/taxonomies";
+import { getTaxonomy } from "@lib/taxonomyParser";
 import Link from "next/link";
 const { blog_folder } = config.settings;
 

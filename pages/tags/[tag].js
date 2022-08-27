@@ -1,7 +1,7 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getSinglePages } from "@lib/contents";
-import { getTaxonomy } from "@lib/taxonomies";
+import { getSinglePages } from "@lib/contentParser";
+import { getTaxonomy } from "@lib/taxonomyParser";
 import { slugify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;

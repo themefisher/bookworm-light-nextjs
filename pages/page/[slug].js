@@ -1,7 +1,7 @@
 import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getSinglePages, getSinglePagesSlug } from "@lib/contents";
+import { getSinglePages, getSinglePagesSlug } from "@lib/contentParser";
 import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
 

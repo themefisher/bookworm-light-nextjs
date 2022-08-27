@@ -1,6 +1,6 @@
 import Base from "@layouts/Baseof";
 import Posts from "@layouts/partials/Posts";
-import { getSinglePages } from "@lib/contents";
+import { getSinglePages } from "@lib/contentParser";
 import { slugify } from "@lib/utils/textConverter";
 import { useSearchContext } from "context/state";
 import { useRouter } from "next/router";

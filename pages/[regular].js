@@ -10,7 +10,7 @@ import {
   getRegularPageSlug,
   getSinglePages,
   getSinglePagesSlug,
-} from "@lib/contents";
+} from "@lib/contentParser";
 import { plainify } from "@lib/utils/textConverter";
 const { blog_folder } = config.settings;
 

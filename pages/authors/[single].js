@@ -1,5 +1,5 @@
 import AuthorSingle from "@layouts/AuthorSingle";
-import { getSinglePages, getSinglePagesSlug } from "@lib/contents";
+import { getSinglePages, getSinglePagesSlug } from "@lib/contentParser";
 import { parseMDX } from "@lib/utils/mdxParser";
 
 // post single layout
