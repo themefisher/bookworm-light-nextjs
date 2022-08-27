@@ -15,7 +15,7 @@ const Tags = ({ tags }) => {
             {tags.map((category, i) => (
               <li key={`category-${i}`} className="inline-block">
                 <Link href={`/tags/${category}`} passHref>
-                  <a className="rounded-lg bg-light px-4 py-2 text-text-dark transition hover:bg-primary hover:text-white">
+                  <a className="bg-theme-light rounded-lg px-4 py-2 text-dark transition hover:bg-primary hover:text-white">
                     &#8226; {humanize(category)}
                   </a>
                 </Link>

@@ -28,7 +28,7 @@ const Pagination = ({ section, currentPage, totalPages }) => {
               }
               passHref
             >
-              <a className="rounded-lg border border-primary px-2 py-2 text-text-dark">
+              <a className="rounded-lg border border-primary px-2 py-2 text-dark">
                 <span className="sr-only">Previous</span>
                 <svg
                   className="mt-1 h-5 w-5"
@@ -46,7 +46,7 @@ const Pagination = ({ section, currentPage, totalPages }) => {
               </a>
             </Link>
           ) : (
-            <span className="rounded-lg border border-primary px-2 py-2 text-text-dark">
+            <span className="rounded-lg border border-primary px-2 py-2 text-dark">
               <span className="sr-only">Previous</span>
               <svg
                 className="mt-1 h-5 w-5"
@@ -85,7 +85,7 @@ const Pagination = ({ section, currentPage, totalPages }) => {
                 >
                   <a
                     aria-current="page"
-                    className={`rounded-lg border border-primary px-4 py-2 text-text-dark`}
+                    className={`rounded-lg border border-primary px-4 py-2 text-dark`}
                   >
                     {pagination}
                   </a>
@@ -100,7 +100,7 @@ const Pagination = ({ section, currentPage, totalPages }) => {
               href={`${section ? "/" + section : ""}/page/${currentPage + 1}`}
               passHref
             >
-              <a className="rounded-lg border border-primary px-2 py-2 text-text-dark">
+              <a className="rounded-lg border border-primary px-2 py-2 text-dark">
                 <span className="sr-only">Next</span>
                 <svg
                   className="mt-1 h-5 w-5"
@@ -118,7 +118,7 @@ const Pagination = ({ section, currentPage, totalPages }) => {
               </a>
             </Link>
           ) : (
-            <span className="rounded-lg border border-primary px-2 py-2 text-text-dark">
+            <span className="rounded-lg border border-primary px-2 py-2 text-dark">
               <span className="sr-only">Next</span>
               <svg
                 className="mt-1 h-5 w-5"

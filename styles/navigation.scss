@@ -29,7 +29,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-link {
-  @apply p-3 text-lg font-semibold text-text-dark transition hover:text-primary md:p-4;
+  @apply p-3 text-lg font-semibold text-dark transition hover:text-primary md:p-4;
 }
 
 .nav-dropdown {
@@ -45,7 +45,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-dropdown-link {
-  @apply min-w-[150px] py-1 text-lg font-semibold text-text-dark transition hover:text-primary;
+  @apply min-w-[150px] py-1 text-lg font-semibold text-dark transition hover:text-primary;
 }
 
 // search style

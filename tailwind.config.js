@@ -29,20 +29,30 @@ module.exports = {
     "./layouts/**/*.{js,ts,jsx,tsx}",
     "./content/**/*.{md,mdx}",
   ],
+  darkMode: false,
   theme: {
+    screens: {
+      sm: "540px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
+    container: {
+      center: true,
+      padding: "2rem",
+    },
     extend: {
       colors: {
-        primary: theme.colors.theme_color.primary,
-        secondary: theme.colors.theme_color.secondary,
-        body: theme.colors.theme_color.body,
-        border: theme.colors.theme_color.border,
-        light: theme.colors.theme_color.light,
-        dark: theme.colors.theme_color.dark,
-        text: {
-          DEFAULT: theme.colors.text_color.default,
-          light: theme.colors.text_color.light,
-          dark: theme.colors.text_color.dark,
-        },
+        text: theme.colors.default.text_color.default,
+        light: theme.colors.default.text_color.light,
+        dark: theme.colors.default.text_color.dark,
+        primary: theme.colors.default.theme_color.primary,
+        secondary: theme.colors.default.theme_color.secondary,
+        body: theme.colors.default.theme_color.body,
+        border: theme.colors.default.theme_color.border,
+        "theme-light": theme.colors.default.theme_color.theme_light,
+        "theme-dark": theme.colors.default.theme_color.theme_dark,
       },
       fontSize: {
         base: font_base + "px",

@@ -83,7 +83,7 @@ const PostSingle = ({ post, posts, authors, slug }) => {
                 {tags.map((tag, i) => (
                   <li className="inline-block" key={`tag-${i}`}>
                     <Link href={`/tags/${slugify(tag)}`} passHref>
-                      <a className="block rounded-lg bg-light px-4 py-2 font-semibold text-text-dark hover:text-primary">
+                      <a className="bg-theme-light block rounded-lg px-4 py-2 font-semibold text-dark hover:text-primary">
                         #{humanize(tag)}
                       </a>
                     </Link>

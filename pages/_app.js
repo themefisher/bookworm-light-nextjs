@@ -3,11 +3,13 @@ import theme from "@config/theme.json";
 import { JsonContext } from "context/state";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import TagManager from "react-gtm-module";
 import "styles/style.scss";
 
 const App = ({ Component, pageProps }) => {
-  // destructuring items from config object
-  const { favicon } = config.site;
+  // default theme setup
+  const { default_theme } = config.settings;
+
   // import google font css
   const pf = theme.fonts.font_family.primary;
   const sf = theme.fonts.font_family.secondary;
@@ -20,12 +22,20 @@ const App = ({ Component, pageProps }) => {
     ).then((res) => res.text().then((css) => setFontcss(css)));
   }, [pf, sf]);
 
+  // google tag manager (gtm)
+  const tagManagerArgs = {
+    gtmId: config.params.tag_manager_id,
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      config.params.tag_manager_id && TagManager.initialize(tagManagerArgs);
+    }, 5000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <JsonContext>
       <Head>
-        {/* favicon */}
-        <link rel="shortcut icon" href={favicon} />
-
         {/* google font css */}
         <link
           rel="preconnect"
@@ -37,7 +47,6 @@ const App = ({ Component, pageProps }) => {
             __html: `${fontcss}`,
           }}
         />
-
         {/* responsive meta */}
         <meta
           name="viewport"
