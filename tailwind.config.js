@@ -29,7 +29,6 @@ module.exports = {
     "./layouts/**/*.{js,ts,jsx,tsx}",
     "./content/**/*.{md,mdx}",
   ],
-  darkMode: false,
   theme: {
     screens: {
       sm: "540px",

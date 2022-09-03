@@ -11,7 +11,6 @@ import {
   getSinglePages,
   getSinglePagesSlug,
 } from "@lib/contentParser";
-import { plainify } from "@lib/utils/textConverter";
 const { blog_folder } = config.settings;
 
 // for all regular pages
@@ -22,11 +21,9 @@ const RegularPages = ({ slug, data, postSlug, authors, posts }) => {
 
   return (
     <Base
-      title={plainify(title)}
-      description={
-        description ? plainify(description) : plainify(content.slice(0, 120))
-      }
-      meta_title={plainify(meta_title)}
+      title={title}
+      description={description ? description : content.slice(0, 120)}
+      meta_title={meta_title}
       image={image}
       noindex={noindex}
       canonical={canonical}
