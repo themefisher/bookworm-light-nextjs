@@ -10,7 +10,8 @@ const Document = () => {
       <Head>
         {/* favicon */}
         <link rel="shortcut icon" href={favicon} />
-        {/* color meta */}
+        {/* theme meta */}
+        <meta name="theme-name" content="bookworm-light-nextjs" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta
           name="theme-color"
