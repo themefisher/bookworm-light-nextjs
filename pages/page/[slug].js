@@ -9,7 +9,7 @@ const { blog_folder } = config.settings;
 const BlogPagination = ({ posts, authors, currentPage, pagination }) => {
   const indexOfLastPost = currentPage * pagination;
   const indexOfFirstPost = indexOfLastPost - pagination;
-  const totalPages = Math.round(posts.length / pagination);
+  const totalPages = Math.ceil(posts.length / pagination);
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   return (
@@ -17,11 +17,7 @@ const BlogPagination = ({ posts, authors, currentPage, pagination }) => {
       <section className="section">
         <div className="container">
           <Posts className="mb-16" posts={currentPosts} authors={authors} />
-          <Pagination
-            section=""
-            totalPages={totalPages}
-            currentPage={currentPage}
-          />
+          <Pagination totalPages={totalPages} currentPage={currentPage} />
         </div>
       </section>
     </Base>
@@ -34,7 +30,7 @@ export default BlogPagination;
 export const getStaticPaths = () => {
   const allSlug = getSinglePagesSlug(`content/${blog_folder}`);
   const { pagination } = config.settings;
-  const totalPages = Math.round(allSlug.length / pagination);
+  const totalPages = Math.ceil(allSlug.length / pagination);
   let paths = [];
 
   for (let i = 1; i < totalPages; i++) {

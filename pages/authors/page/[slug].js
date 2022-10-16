@@ -1,7 +1,11 @@
 import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getListPage, getSinglePages, getSinglePagesSlug } from "@lib/contentParser";
+import {
+  getListPage,
+  getSinglePages,
+  getSinglePagesSlug,
+} from "@lib/contentParser";
 import { parseMDX } from "@lib/utils/mdxParser";
 import { markdownify } from "@lib/utils/textConverter";
 import Authors from "@partials/Authors";
@@ -15,7 +19,7 @@ const AuthorPagination = ({
 }) => {
   const indexOfLastAuthor = currentPage * pagination;
   const indexOfFirstAuthor = indexOfLastAuthor - pagination;
-  const totalPages = Math.round(authors.length / pagination);
+  const totalPages = Math.ceil(authors.length / pagination);
   const currentAuthors = authors.slice(indexOfFirstAuthor, indexOfLastAuthor);
   const { frontmatter, content } = authorIndex;
   const { title } = frontmatter;
@@ -43,7 +47,7 @@ export default AuthorPagination;
 export const getStaticPaths = () => {
   const allSlug = getSinglePagesSlug("content/authors");
   const { pagination } = config.settings;
-  const totalPages = Math.round(allSlug.length / pagination);
+  const totalPages = Math.ceil(allSlug.length / pagination);
   let paths = [];
 
   for (let i = 1; i < totalPages; i++) {
