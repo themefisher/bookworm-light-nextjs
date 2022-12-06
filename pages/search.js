@@ -12,6 +12,9 @@ const SearchPage = ({ authors }) => {
   const { posts } = useSearchContext();
 
   const searchResults = posts.filter((product) => {
+    if(product.frontmatter.draft){
+      return !product.frontmatter.draft;
+    }
     if (slugify(product.frontmatter.title).includes(keyword)) {
       return product;
     } else if (
