@@ -1,5 +1,5 @@
 import config from "@config/config.json";
-import { dateFormat } from "@lib/utils/dateFormat";
+import dateFormat from "@lib/utils/dateFormat";
 import { humanize, slugify } from "@lib/utils/textConverter";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,12 +20,11 @@ const Posts = ({ posts, authors, className }) => {
               alt={post.frontmatter.title}
               width={i === 0 ? "925" : "445"}
               height={i === 0 ? "475" : "230"}
-              layout="responsive"
               priority={i === 0 ? true : false}
             />
           )}
-          <ul className="mt-4 text-text">
-            <li className="mb-2 mr-4 inline-block">
+          <ul className="mt-4 mb-4 flex flex-wrap items-center space-x-3 text-text">
+            <li>
               {authors
                 .filter((author) =>
                   post.frontmatter.authors
@@ -36,35 +35,31 @@ const Posts = ({ posts, authors, className }) => {
                   <Link
                     href={`/authors/${slugify(author.frontmatter.title)}`}
                     key={`author-${i}`}
-                    passHref
+                    className="flex items-center hover:text-primary"
                   >
-                    <a className="inline-block hover:text-primary">
-                      {author.frontmatter.image && (
-                        <span className="author-image">
-                          <Image
-                            src={author.frontmatter.image}
-                            alt={author.frontmatter.title}
-                            height={50}
-                            width={50}
-                          />
-                        </span>
-                      )}
-                      <span>{author.frontmatter.title}</span>
-                    </a>
+                    {author.frontmatter.image && (
+                      <Image
+                        src={author.frontmatter.image}
+                        alt={author.frontmatter.title}
+                        height={50}
+                        width={50}
+                        className="mr-2 h-6 w-6 rounded-full"
+                      />
+                    )}
+                    <span>{author.frontmatter.title}</span>
                   </Link>
                 ))}
             </li>
-            <li className="mb-2 mr-4 inline-block">
-              {dateFormat(post.frontmatter.date)}
-            </li>
-            <li className="mb-2 mr-4 inline-block">
+            <li>{dateFormat(post.frontmatter.date)}</li>
+            <li>
               <ul>
                 {post.frontmatter.categories.map((category, i) => (
                   <li className="inline-block" key={`category-${i}`}>
-                    <Link href={`/categories/${slugify(category)}`} passHref>
-                      <a className="mr-3 hover:text-primary">
-                        &#9635; {humanize(category)}
-                      </a>
+                    <Link
+                      href={`/categories/${slugify(category)}`}
+                      className="mr-3 hover:text-primary"
+                    >
+                      &#9635; {humanize(category)}
                     </Link>
                   </li>
                 ))}
@@ -72,10 +67,8 @@ const Posts = ({ posts, authors, className }) => {
             </li>
           </ul>
           <h3 className="mb-2">
-            <Link href={`/${post.slug}`} passHref>
-              <a className="block hover:text-primary">
-                {post.frontmatter.title}
-              </a>
+            <Link href={`/${post.slug}`} className="block hover:text-primary">
+              {post.frontmatter.title}
             </Link>
           </h3>
           <p className="text-text">

@@ -1,7 +1,7 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { humanize, markdownify } from "@lib/utils/textConverter";
 import { getTaxonomy } from "@lib/taxonomyParser";
+import { humanize, markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 const { blog_folder } = config.settings;
 
@@ -14,10 +14,11 @@ const Categories = ({ categories }) => {
           <ul className="space-x-4">
             {categories.map((category, i) => (
               <li key={`category-${i}`} className="inline-block">
-                <Link href={`/categories/${category}`} passHref>
-                  <a className="bg-theme-light rounded-lg px-4 py-2 text-dark transition hover:bg-primary hover:text-white">
-                    &#8226; {humanize(category)}
-                  </a>
+                <Link
+                  href={`/categories/${category}`}
+                  className="rounded-lg bg-theme-light px-4 py-2 text-dark transition hover:bg-primary hover:text-white"
+                >
+                  &#8226; {humanize(category)}
                 </Link>
               </li>
             ))}

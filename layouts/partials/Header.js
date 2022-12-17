@@ -80,10 +80,11 @@ const Header = () => {
                     <ul className="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
                       {menu.children.map((child, i) => (
                         <li className="nav-dropdown-item" key={`children-${i}`}>
-                          <Link href={child.url} passHref>
-                            <a className="nav-dropdown-link block">
-                              {child.name}
-                            </a>
+                          <Link
+                            href={child.url}
+                            className="nav-dropdown-link block"
+                          >
+                            {child.name}
                           </Link>
                         </li>
                       ))}
@@ -91,8 +92,8 @@ const Header = () => {
                   </li>
                 ) : (
                   <li className="nav-item">
-                    <Link href={menu.url} passHref>
-                      <a className="nav-link block">{menu.name}</a>
+                    <Link href={menu.url} className="nav-link block">
+                      {menu.name}
                     </Link>
                   </li>
                 )}

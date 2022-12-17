@@ -14,8 +14,8 @@ const Footer = () => {
         <ul className="mb-8 space-x-4">
           {menu.footer.map((menu) => (
             <li className="inline-block" key={menu.name}>
-              <Link href={menu.url} passHref>
-                <a className="p-4 text-light hover:text-white">{menu.name}</a>
+              <Link href={menu.url} className="p-4 text-light hover:text-white">
+                {menu.name}
               </Link>
             </li>
           ))}
