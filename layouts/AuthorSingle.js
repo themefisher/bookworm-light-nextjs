@@ -1,5 +1,5 @@
 import { markdownify } from "@lib/utils/textConverter";
-import { shortcodes } from "@shortcodes/all";
+import shortcodes from "@shortcodes/all";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Base from "./Baseof";
@@ -20,7 +20,7 @@ const AuthorSingle = ({ frontmatter, content, mdxContent }) => {
               <div className="mb-8">
                 <Image
                   src={image}
-                  className="rounded-lg"
+                  className="mx-auto rounded-lg"
                   height="150"
                   width="150"
                   alt={title}

@@ -14,16 +14,16 @@ const Authors = ({ authors }) => {
                 alt={author.frontmatter.title}
                 height="150px"
                 width="150px"
-                layout="fixed"
                 className="rounded-lg"
               />
             </div>
           )}
           <h3 className="h4 mb-2">
-            <Link href={`/authors/${author.slug}`} passHref>
-              <a className="block hover:text-primary">
-                {author.frontmatter.title}
-              </a>
+            <Link
+              href={`/authors/${author.slug}`}
+              className="block hover:text-primary"
+            >
+              {author.frontmatter.title}
             </Link>
           </h3>
           {markdownify(author.content.slice(0, 120), "p")}

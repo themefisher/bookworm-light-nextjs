@@ -1,6 +1,6 @@
 import Base from "@layouts/Baseof";
 import Posts from "@layouts/partials/Posts";
-import { getSinglePages } from "@lib/contentParser";
+import { getSinglePage } from "@lib/contentParser";
 import { slugify } from "@lib/utils/textConverter";
 import { useSearchContext } from "context/state";
 import { useRouter } from "next/router";
@@ -12,7 +12,7 @@ const SearchPage = ({ authors }) => {
   const { posts } = useSearchContext();
 
   const searchResults = posts.filter((product) => {
-    if(product.frontmatter.draft){
+    if (product.frontmatter.draft) {
       return !product.frontmatter.draft;
     }
     if (slugify(product.frontmatter.title).includes(keyword)) {
@@ -56,7 +56,7 @@ export default SearchPage;
 
 // get authors data
 export const getStaticProps = () => {
-  const authors = getSinglePages("content/authors");
+  const authors = getSinglePage("content/authors");
   return {
     props: {
       authors: authors,

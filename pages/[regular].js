@@ -5,12 +5,7 @@ import Base from "@layouts/Baseof";
 import Contact from "@layouts/Contact";
 import Default from "@layouts/Default";
 import PostSingle from "@layouts/PostSingle";
-import {
-  getRegularPage,
-  getRegularPageSlug,
-  getSinglePages,
-  getSinglePagesSlug,
-} from "@lib/contentParser";
+import { getRegularPage, getSinglePage } from "@lib/contentParser";
 const { blog_folder } = config.settings;
 
 // for all regular pages
@@ -47,10 +42,12 @@ export default RegularPages;
 
 // for regular page routes
 export const getStaticPaths = async () => {
-  const slugs = getRegularPageSlug("content");
-  const paths = slugs.map((slug) => ({
+  const regularSlugs = getSinglePage("content");
+  const postSlugs = getSinglePage(`content/${blog_folder}`);
+  const allSlugs = [...regularSlugs, ...postSlugs];
+  const paths = allSlugs.map((item) => ({
     params: {
-      regular: slug,
+      regular: item.slug,
     },
   }));
 
@@ -65,11 +62,12 @@ export const getStaticProps = async ({ params }) => {
   const { regular } = params;
   const allPages = await getRegularPage(regular);
   // get posts folder slug for filtering
-  const postSlug = getSinglePagesSlug(`content/${blog_folder}`);
+  const getPostSlug = getSinglePage(`content/${blog_folder}`);
+  const postSlug = getPostSlug.map((item) => item.slug);
   // aughor data
-  const authors = getSinglePages("content/authors");
+  const authors = getSinglePage("content/authors");
   // all single pages
-  const posts = getSinglePages(`content/${blog_folder}`);
+  const posts = getSinglePage(`content/${blog_folder}`);
 
   return {
     props: {

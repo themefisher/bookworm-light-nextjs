@@ -1,6 +1,6 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getSinglePages } from "@lib/contentParser";
+import { getSinglePage } from "@lib/contentParser";
 import { getTaxonomy } from "@lib/taxonomyParser";
 import { slugify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
@@ -39,11 +39,11 @@ export const getStaticPaths = () => {
 
 // tag page data
 export const getStaticProps = ({ params }) => {
-  const posts = getSinglePages(`content/${blog_folder}`);
+  const posts = getSinglePage(`content/${blog_folder}`);
   const filterPosts = posts.filter((post) =>
     post.frontmatter.tags.find((tag) => slugify(tag).includes(params.tag))
   );
-  const authors = getSinglePages("content/authors");
+  const authors = getSinglePage("content/authors");
 
   return {
     props: { posts: filterPosts, tag: params.tag, authors: authors },

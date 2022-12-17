@@ -1,12 +1,7 @@
 import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import {
-  getListPage,
-  getSinglePages,
-  getSinglePagesSlug,
-} from "@lib/contentParser";
-import { parseMDX } from "@lib/utils/mdxParser";
+import { getListPage, getSinglePage } from "@lib/contentParser";
 import { markdownify } from "@lib/utils/textConverter";
 import Authors from "@partials/Authors";
 
@@ -43,9 +38,10 @@ const AuthorPagination = ({
 
 export default AuthorPagination;
 
-// get blog pagination slug
+// get authors pagination slug
 export const getStaticPaths = () => {
-  const allSlug = getSinglePagesSlug("content/authors");
+  const getAllSlug = getSinglePage("content/authors");
+  const allSlug = getAllSlug.map((item) => item.slug);
   const { pagination } = config.settings;
   const totalPages = Math.ceil(allSlug.length / pagination);
   let paths = [];
@@ -64,13 +60,12 @@ export const getStaticPaths = () => {
   };
 };
 
-// get blog pagination content
+// get authors pagination content
 export const getStaticProps = async ({ params }) => {
   const currentPage = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
-  const authors = getSinglePages("content/authors");
-  const authorIndex = await getListPage("content/authors");
-  const mdxContent = await parseMDX(authorIndex.content);
+  const authors = getSinglePage("content/authors");
+  const authorIndex = await getListPage("content/authors/_index.md");
 
   return {
     props: {
@@ -78,7 +73,7 @@ export const getStaticProps = async ({ params }) => {
       authors: authors,
       currentPage: currentPage,
       authorIndex: authorIndex,
-      mdxContent: mdxContent,
+      mdxContent: authorIndex.mdxContent,
     },
   };
 };

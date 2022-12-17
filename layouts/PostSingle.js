@@ -1,12 +1,12 @@
+import Share from "@components/Share";
 import { dateFormat } from "@lib/utils/dateFormat";
 import { similerItems } from "@lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@lib/utils/textConverter";
-import { shortcodes } from "@shortcodes/all";
+import SimilarPosts from "@partials/SimilarPosts";
+import shortcodes from "@shortcodes/all";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Link from "next/link";
-import Share from "./components/Share";
-import SimilarPosts from "./partials/SimilarPosts";
 
 const PostSingle = ({ post, posts, authors, slug }) => {
   const { frontmatter, content, mdxContent } = post;
@@ -20,8 +20,8 @@ const PostSingle = ({ post, posts, authors, slug }) => {
         <div className="container">
           <article className="text-center">
             {markdownify(title, "h1", "h2")}
-            <ul className="mt-4 mb-8 text-text">
-              <li className="mb-2 mr-4 inline-block">
+            <ul className="mt-4 mb-8 flex flex-wrap items-center space-x-3 text-text">
+              <li>
                 {authors
                   .filter((author) =>
                     frontmatter.authors
@@ -32,33 +32,31 @@ const PostSingle = ({ post, posts, authors, slug }) => {
                     <Link
                       href={`/authors/${slugify(author.frontmatter.title)}`}
                       key={`author-${i}`}
-                      passHref
+                      className="flex items-center hover:text-primary"
                     >
-                      <a className="inline-block hover:text-primary">
-                        {author.frontmatter.image && (
-                          <span className="author-image">
-                            <Image
-                              src={author.frontmatter.image}
-                              alt={author.frontmatter.title}
-                              height={50}
-                              width={50}
-                            />
-                          </span>
-                        )}
-                        <span>{author.frontmatter.title}</span>
-                      </a>
+                      {author.frontmatter.image && (
+                        <Image
+                          src={author.frontmatter.image}
+                          alt={author.frontmatter.title}
+                          height={50}
+                          width={50}
+                          className="mr-2 h-6 w-6 rounded-full"
+                        />
+                      )}
+                      <span>{author.frontmatter.title}</span>
                     </Link>
                   ))}
               </li>
-              <li className="mb-2 mr-4 inline-block">{dateFormat(date)}</li>
-              <li className="mb-2 mr-4 inline-block">
+              <li>{dateFormat(date)}</li>
+              <li>
                 <ul>
                   {categories.map((category, i) => (
                     <li className="inline-block" key={`category-${i}`}>
-                      <Link href={`/categories/${slugify(category)}`} passHref>
-                        <a className="mr-3 hover:text-primary">
-                          &#9635; {humanize(category)}
-                        </a>
+                      <Link
+                        href={`/categories/${slugify(category)}`}
+                        className="mr-3 hover:text-primary"
+                      >
+                        &#9635; {humanize(category)}
                       </Link>
                     </li>
                   ))}
@@ -71,7 +69,6 @@ const PostSingle = ({ post, posts, authors, slug }) => {
                 height="500"
                 width="1000"
                 alt={title}
-                layout="responsive"
                 className="rounded-lg"
               />
             )}
@@ -82,10 +79,11 @@ const PostSingle = ({ post, posts, authors, slug }) => {
               <ul className="mr-4 mb-4 space-x-3">
                 {tags.map((tag, i) => (
                   <li className="inline-block" key={`tag-${i}`}>
-                    <Link href={`/tags/${slugify(tag)}`} passHref>
-                      <a className="bg-theme-light block rounded-lg px-4 py-2 font-semibold text-dark hover:text-primary">
-                        #{humanize(tag)}
-                      </a>
+                    <Link
+                      href={`/tags/${slugify(tag)}`}
+                      className="block rounded-lg bg-theme-light px-4 py-2 font-semibold text-dark hover:text-primary"
+                    >
+                      #{humanize(tag)}
                     </Link>
                   </li>
                 ))}

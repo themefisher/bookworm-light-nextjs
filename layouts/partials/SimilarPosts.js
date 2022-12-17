@@ -15,7 +15,6 @@ const SimilarPosts = ({ posts }) => {
               alt={post.frontmatter.title}
               width={"445"}
               height={"230"}
-              layout="responsive"
             />
           )}
           <ul className="mt-4 text-text">
@@ -24,12 +23,13 @@ const SimilarPosts = ({ posts }) => {
             </li>
             <li className="mb-2 mr-4 inline-block">
               <ul>
-                {post.frontmatter.categories.map((category, i) => (
+                {post.frontmatter.categories?.map((category, i) => (
                   <li className="inline-block" key={`category-${i}`}>
-                    <Link href={`/categories/${slugify(category)}`} passHref>
-                      <a className="mr-3 hover:text-primary">
-                        &#9635; {humanize(category)}
-                      </a>
+                    <Link
+                      href={`/categories/${slugify(category)}`}
+                      className="mr-3 hover:text-primary"
+                    >
+                      &#9635; {humanize(category)}
                     </Link>
                   </li>
                 ))}
@@ -37,10 +37,8 @@ const SimilarPosts = ({ posts }) => {
             </li>
           </ul>
           <h3 className="h4">
-            <Link href={`/${post.slug}`} passHref>
-              <a className="block hover:text-primary">
-                {post.frontmatter.title}
-              </a>
+            <Link href={`/${post.slug}`} className="block hover:text-primary">
+              {post.frontmatter.title}
             </Link>
           </h3>
         </div>
