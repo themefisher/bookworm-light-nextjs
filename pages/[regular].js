@@ -61,6 +61,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const { regular } = params;
   const allPages = await getRegularPage(regular);
+
   // get posts folder slug for filtering
   const getPostSlug = getSinglePage(`content/${blog_folder}`);
   const postSlug = getPostSlug.map((item) => item.slug);

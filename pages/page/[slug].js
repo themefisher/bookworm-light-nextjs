@@ -16,8 +16,8 @@ const BlogPagination = ({ posts, authors, currentPage, pagination }) => {
     <Base>
       <section className="section">
         <div className="container">
-          <Posts className="mb-16" posts={currentPosts} authors={authors} />
-          <Pagination totalPages={totalPages} currentPage={currentPage} />
+          {/* <Posts className="mb-16" posts={currentPosts} authors={authors} /> */}
+          {/* <Pagination totalPages={totalPages} currentPage={currentPage} /> */}
         </div>
       </section>
     </Base>
