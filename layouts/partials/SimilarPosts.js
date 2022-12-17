@@ -1,4 +1,4 @@
-import { dateFormat } from "@lib/utils/dateFormat";
+import dateFormat from "@lib/utils/dateFormat";
 import { humanize, slugify } from "@lib/utils/textConverter";
 import Image from "next/image";
 import Link from "next/link";

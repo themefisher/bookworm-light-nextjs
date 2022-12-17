@@ -1,6 +1,6 @@
 import Share from "@components/Share";
-import { dateFormat } from "@lib/utils/dateFormat";
-import { similerItems } from "@lib/utils/similarItems";
+import dateFormat from "@lib/utils/dateFormat";
+import similerItems from "@lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@lib/utils/textConverter";
 import SimilarPosts from "@partials/SimilarPosts";
 import shortcodes from "@shortcodes/all";
@@ -13,7 +13,6 @@ const PostSingle = ({ post, posts, authors, slug }) => {
   let { description, title, date, image, categories, tags } = frontmatter;
   description = description ? description : content.slice(0, 120);
   const similarPosts = similerItems(post, posts, slug);
-  
 
   return (
     <>
@@ -21,7 +20,7 @@ const PostSingle = ({ post, posts, authors, slug }) => {
         <div className="container">
           <article className="text-center">
             {markdownify(title, "h1", "h2")}
-            <ul className="mt-4 mb-8 flex flex-wrap items-center space-x-3 text-text">
+            <ul className="mt-4 mb-8 flex flex-wrap items-center justify-center space-x-3 text-text">
               <li>
                 {authors
                   .filter((author) =>

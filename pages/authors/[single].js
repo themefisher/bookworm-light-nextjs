@@ -1,6 +1,6 @@
 import AuthorSingle from "@layouts/AuthorSingle";
 import { getSinglePage } from "@lib/contentParser";
-import { parseMDX } from "@lib/utils/mdxParser";
+import parseMDX from "@lib/utils/mdxParser";
 
 // post single layout
 const Article = ({ author, mdxContent }) => {
