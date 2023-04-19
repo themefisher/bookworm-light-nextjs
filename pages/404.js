@@ -1,23 +1,23 @@
-import NotFound from "@layouts/404";
-import Base from "@layouts/Baseof";
-import { getRegularPage } from "@lib/contentParser";
+import NotFound from '@layouts/404'
+import Base from '@layouts/Baseof'
+import { getRegularPage } from '@lib/contentParser'
 
 const notFound = ({ data }) => {
   return (
     <Base>
       <NotFound data={data} />
     </Base>
-  );
-};
+  )
+}
 
 // get 404 page data
 export const getStaticProps = async () => {
-  const notFoundData = await getRegularPage("404");
+  const notFoundData = await getRegularPage('404')
   return {
     props: {
-      data: notFoundData,
-    },
-  };
-};
+      data: notFoundData
+    }
+  }
+}
 
-export default notFound;
+export default notFound

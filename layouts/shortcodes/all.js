@@ -1,7 +1,7 @@
-import Button from "./Button";
+import Button from './Button'
 
 const shortcodes = {
-  Button,
-};
+  Button
+}
 
-export default shortcodes;
+export default shortcodes

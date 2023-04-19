@@ -1,0 +1,34 @@
+name: Analyze Build Size
+
+on:
+  push:
+    branches:
+      - "*"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "17.x"
+      - name: Install Dependencies
+        run: |
+          npm ci
+          npm install --save-dev @next/bundle-analyzer
+      - name: Create the build
+        run: npx next build
+      - name: Analyze Build Size
+        env:
+          ANALYZE: true
+        run: npx next telemetry build
+      - name: Upload Report
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-report
+          path: .next/

@@ -1,17 +1,17 @@
-import { createContext, useContext } from "react";
-import posts from "../json/posts.json";
+import { createContext, useContext } from 'react'
+import posts from '../json/posts.json'
 
-const SearchContext = createContext();
+const SearchContext = createContext()
 
 export const JsonContext = ({ children }) => {
   const state = {
-    posts,
-  };
+    posts
+  }
   return (
     <SearchContext.Provider value={state}>{children}</SearchContext.Provider>
-  );
-};
+  )
+}
 
 export const useSearchContext = () => {
-  return useContext(SearchContext);
-};
+  return useContext(SearchContext)
+}

@@ -1,4 +1,4 @@
-import AuthorPagination, { getStaticProps } from "./page/[slug]";
+import AuthorPagination, { getStaticProps } from './page/[slug]'
 
-export { getStaticProps };
-export default AuthorPagination;
+export { getStaticProps }
+export default AuthorPagination
