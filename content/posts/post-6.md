@@ -2,7 +2,7 @@
 title: "Become a morning person with the help of this a alarm clock"
 description: "meta description"
 image: "/images/posts/06.jpg"
-date: 2021-02-03T16:56:47+06:00
+date: 2021-02-03
 draft: false
 authors: ["Mark Dinn"]
 tags: ["Alarm", "Clock"]

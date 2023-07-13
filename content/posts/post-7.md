@@ -1,8 +1,8 @@
 ---
-title: "How to make toys from old Olarpaper"
+title: "DIY Paper Diamond Tutorial with HUNGRY HEART"
 description: "meta description"
-date: 2022-04-04T05:00:00Z
-image: "/images/posts/01.jpg"
+date: 2022-08-12
+image: "/images/posts/05.jpg"
 categories: ["art"]
 authors: ["Mark Dinn"]
 tags: ["diy", "toy"]
