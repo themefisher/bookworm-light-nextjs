@@ -13,8 +13,8 @@ const SimilarPosts = ({ posts }) => {
               className="rounded-lg"
               src={post.frontmatter.image}
               alt={post.frontmatter.title}
-              width={"445"}
-              height={"230"}
+              width={445}
+              height={230}
             />
           )}
           <ul className="mt-4 text-text">

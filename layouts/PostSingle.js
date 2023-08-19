@@ -66,8 +66,8 @@ const PostSingle = ({ post, posts, authors, slug }) => {
             {image && (
               <Image
                 src={image}
-                height="500"
-                width="1000"
+                height={500}
+                width={1000}
                 alt={title}
                 className="rounded-lg"
               />
