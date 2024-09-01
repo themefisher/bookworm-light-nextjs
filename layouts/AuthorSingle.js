@@ -1,18 +1,18 @@
 import { markdownify } from "@lib/utils/textConverter";
-import shortcodes from "@shortcodes/all";
-import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
-import Base from "./Baseof";
 import Social from "./components/Social";
+import MDXContent from "./partials/MDXContent";
+import SeoMeta from "./partials/SeoMeta";
 
-const AuthorSingle = ({ frontmatter, content, mdxContent }) => {
+const AuthorSingle = ({ frontmatter, content }) => {
   const { description, social, title, image } = frontmatter;
 
   return (
-    <Base
-      title={title}
-      description={description ? description : content.slice(0, 120)}
-    >
+    <>
+      <SeoMeta
+        title={title}
+        description={description ? description : content.slice(0, 120)}
+      />
       <section className="section">
         <div className="container">
           <div className="mb-4 text-center md:px-24">
@@ -30,12 +30,12 @@ const AuthorSingle = ({ frontmatter, content, mdxContent }) => {
             {markdownify(title, "h1", "h2 mb-8")}
             <Social source={social} className="social-icons-simple" />
             <div className="content">
-              <MDXRemote {...mdxContent} components={shortcodes} />
+              <MDXContent content={content} />
             </div>
           </div>
         </div>
       </section>
-    </Base>
+    </>
   );
 };
 

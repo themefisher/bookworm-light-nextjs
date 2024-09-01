@@ -1,17 +1,19 @@
 import Pagination from "@components/Pagination";
 import config from "@config/config.json";
-import Base from "@layouts/Baseof";
+import SeoMeta from "@layouts/partials/SeoMeta";
 import { getListPage, getSinglePage } from "@lib/contentParser";
 import { markdownify } from "@lib/utils/textConverter";
 import Authors from "@partials/Authors";
 
 // blog pagination
-const AuthorPagination = ({
-  authorIndex,
-  authors,
-  currentPage,
-  pagination,
-}) => {
+const AuthorPagination = async ({ params }) => {
+  //
+  const currentPage = parseInt((params && params.slug) || 1);
+  const { pagination } = config.settings;
+  const authors = getSinglePage("content/authors");
+  const authorIndex = await getListPage("content/authors/_index.md");
+
+  //
   const indexOfLastAuthor = currentPage * pagination;
   const indexOfFirstAuthor = indexOfLastAuthor - pagination;
   const totalPages = Math.ceil(authors.length / pagination);
@@ -20,7 +22,8 @@ const AuthorPagination = ({
   const { title } = frontmatter;
 
   return (
-    <Base title={title}>
+    <>
+      <SeoMeta title={title} />
       <section className="section">
         <div className="container text-center">
           {markdownify(title, "h1", "h2 mb-16")}
@@ -32,14 +35,14 @@ const AuthorPagination = ({
           />
         </div>
       </section>
-    </Base>
+    </>
   );
 };
 
 export default AuthorPagination;
 
 // get authors pagination slug
-export const getStaticPaths = () => {
+export const generateStaticParams = () => {
   const getAllSlug = getSinglePage("content/authors");
   const allSlug = getAllSlug.map((item) => item.slug);
   const { pagination } = config.settings;
@@ -48,32 +51,9 @@ export const getStaticPaths = () => {
 
   for (let i = 1; i < totalPages; i++) {
     paths.push({
-      params: {
-        slug: (i + 1).toString(),
-      },
+      slug: (i + 1).toString(),
     });
   }
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-// get authors pagination content
-export const getStaticProps = async ({ params }) => {
-  const currentPage = parseInt((params && params.slug) || 1);
-  const { pagination } = config.settings;
-  const authors = getSinglePage("content/authors");
-  const authorIndex = await getListPage("content/authors/_index.md");
-
-  return {
-    props: {
-      pagination: pagination,
-      authors: authors,
-      currentPage: currentPage,
-      authorIndex: authorIndex,
-      mdxContent: authorIndex.mdxContent,
-    },
-  };
+  return paths;
 };

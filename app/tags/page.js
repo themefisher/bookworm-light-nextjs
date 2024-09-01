@@ -1,14 +1,17 @@
 import config from "@config/config.json";
-import Base from "@layouts/Baseof";
+import SeoMeta from "@layouts/partials/SeoMeta";
 import { getTaxonomy } from "@lib/taxonomyParser";
 import { humanize, markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 const { blog_folder } = config.settings;
 
-const Tags = ({ tags }) => {
+const Tags = async () => {
+  const tags = await getTaxonomy(`content/${blog_folder}`, "tags");
+
   return (
-    <Base title={"tags"}>
-      <section className="section">
+    <>
+      <SeoMeta title={"Tags"} />
+      <section className="section min-h-dvh">
         <div className="container text-center">
           {markdownify("Tags", "h1", "h2 mb-16")}
           <ul className="space-x-4">
@@ -25,18 +28,8 @@ const Tags = ({ tags }) => {
           </ul>
         </div>
       </section>
-    </Base>
+    </>
   );
 };
 
 export default Tags;
-
-export const getStaticProps = () => {
-  const tags = getTaxonomy(`content/${blog_folder}`, "tags");
-
-  return {
-    props: {
-      tags: tags,
-    },
-  };
-};

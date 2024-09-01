@@ -97,12 +97,14 @@ const PostSingle = ({ post, posts, authors, slug }) => {
           </article>
         </div>
       </section>
-      <section className="section">
-        <div className="container">
-          <h2 className="mb-8 text-center">Similar Posts</h2>
-          <SimilarPosts posts={similarPosts.slice(0, 3)} />
-        </div>
-      </section>
+      {similarPosts && similarPosts.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <h2 className="mb-8 text-center">Similar Posts</h2>
+            <SimilarPosts posts={similarPosts.slice(0, 3)} />
+          </div>
+        </section>
+      )}
     </>
   );
 };

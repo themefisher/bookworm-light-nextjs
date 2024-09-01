@@ -6,11 +6,11 @@ import Link from "next/link";
 const { blog_folder } = config.settings;
 
 const Categories = async () => {
-  const categories = getTaxonomy(`content/${blog_folder}`, "categories");
+  const categories = await getTaxonomy(`content/${blog_folder}`, "categories");
   return (
     <>
       <SeoMeta title="Categories" />
-      <section className="section">
+      <section className="section min-h-dvh">
         <div className="container text-center">
           {markdownify("Categories", "h1", "h2 mb-16")}
           <ul className="space-x-4">
