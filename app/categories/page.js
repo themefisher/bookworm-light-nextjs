@@ -1,13 +1,15 @@
 import config from "@config/config.json";
-import Base from "@layouts/Baseof";
+import SeoMeta from "@layouts/partials/SeoMeta";
 import { getTaxonomy } from "@lib/taxonomyParser";
 import { humanize, markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 const { blog_folder } = config.settings;
 
-const Categories = ({ categories }) => {
+const Categories = async () => {
+  const categories = getTaxonomy(`content/${blog_folder}`, "categories");
   return (
-    <Base title={"categories"}>
+    <>
+      <SeoMeta title="Categories" />
       <section className="section">
         <div className="container text-center">
           {markdownify("Categories", "h1", "h2 mb-16")}
@@ -25,18 +27,8 @@ const Categories = ({ categories }) => {
           </ul>
         </div>
       </section>
-    </Base>
+    </>
   );
 };
 
 export default Categories;
-
-export const getStaticProps = () => {
-  const categories = getTaxonomy(`content/${blog_folder}`, "categories");
-
-  return {
-    props: {
-      categories: categories,
-    },
-  };
-};

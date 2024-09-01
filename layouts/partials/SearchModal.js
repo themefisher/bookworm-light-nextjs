@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
@@ -8,18 +10,26 @@ const SearchModal = ({ searchModal, setSearchModal }) => {
 
   useEffect(() => {
     if (searchModal) {
-      document.getElementById("searchModal").focus();
-      document.addEventListener("keydown", (e) => {
+      document.getElementById("searchModal")?.focus();
+
+      const handleKeyDown = (e) => {
         if (e.key === "Enter") {
-          router.push({ pathname: "/search", query: { key: input } });
+          router.push(`/search?key=${encodeURIComponent(input)}`);
           setSearchModal(false);
         }
         if (e.key === "Escape") {
           setSearchModal(false);
         }
-      });
+      };
+
+      document.addEventListener("keydown", handleKeyDown);
+
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+      };
     }
-  });
+  }, [searchModal, input, router, setSearchModal]);
+
   return (
     <div className={`search-modal ${searchModal ? "open" : ""}`}>
       <button onClick={() => setSearchModal(false)} className="search-close">

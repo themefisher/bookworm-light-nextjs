@@ -4,7 +4,7 @@ import { humanize, slugify } from "@lib/utils/textConverter";
 import Image from "next/image";
 import Link from "next/link";
 
-const Posts = ({ posts, authors, className }) => {
+const Posts = ({ posts, className, authors }) => {
   const { summary_length } = config.settings;
   return (
     <div className={`row space-y-16 ${className}`}>
@@ -23,7 +23,7 @@ const Posts = ({ posts, authors, className }) => {
               priority={i === 0 ? true : false}
             />
           )}
-          <ul className="mt-4 mb-4 flex flex-wrap items-center space-x-3 text-text">
+          <ul className="mb-4 mt-4 flex flex-wrap items-center space-x-3 text-text">
             <li>
               {authors
                 .filter((author) =>

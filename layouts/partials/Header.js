@@ -1,3 +1,5 @@
+"use client";
+
 import Logo from "@components/Logo";
 import menu from "@config/menu.json";
 import SearchModal from "@layouts/partials/SearchModal";

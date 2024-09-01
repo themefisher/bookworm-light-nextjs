@@ -3,13 +3,12 @@ import dateFormat from "@lib/utils/dateFormat";
 import similerItems from "@lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@lib/utils/textConverter";
 import SimilarPosts from "@partials/SimilarPosts";
-import shortcodes from "@shortcodes/all";
-import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Link from "next/link";
+import MDXContent from "./partials/MDXContent";
 
 const PostSingle = ({ post, posts, authors, slug }) => {
-  const { frontmatter, content, mdxContent } = post;
+  const { frontmatter, content } = post;
   let { description, title, date, image, categories, tags } = frontmatter;
   description = description ? description : content.slice(0, 120);
   const similarPosts = similerItems(post, posts, slug);
@@ -20,7 +19,7 @@ const PostSingle = ({ post, posts, authors, slug }) => {
         <div className="container">
           <article className="text-center">
             {markdownify(title, "h1", "h2")}
-            <ul className="mt-4 mb-8 flex flex-wrap items-center justify-center space-x-3 text-text">
+            <ul className="mb-8 mt-4 flex flex-wrap items-center justify-center space-x-3 text-text">
               <li>
                 {authors
                   .filter((author) =>
@@ -73,10 +72,10 @@ const PostSingle = ({ post, posts, authors, slug }) => {
               />
             )}
             <div className="content mb-16 text-left">
-              <MDXRemote {...mdxContent} components={shortcodes} />
+              <MDXContent content={content} />
             </div>
             <div className="flex flex-wrap items-center justify-between">
-              <ul className="mr-4 mb-4 space-x-3">
+              <ul className="mb-4 mr-4 space-x-3">
                 {tags.map((tag, i) => (
                   <li className="inline-block" key={`tag-${i}`}>
                     <Link
