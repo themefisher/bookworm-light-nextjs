@@ -7,7 +7,8 @@ import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
 
 // tag page
-const Tag = ({ params }) => {
+const Tag = async props => {
+  const params = await props.params;
   const tag = params.tag;
   const posts = getSinglePage(`content/${blog_folder}`);
   const filterPosts = posts.filter((post) =>

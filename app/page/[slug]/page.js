@@ -6,7 +6,8 @@ import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
 
 // blog pagination
-const BlogPagination = async ({ params }) => {
+const BlogPagination = async props => {
+  const params = await props.params;
   const currentPage = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
   const posts = await getSinglePage(`content/${blog_folder}`);

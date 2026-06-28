@@ -7,7 +7,8 @@ import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
 
 // category page
-const Category = ({ params }) => {
+const Category = async props => {
+  const params = await props.params;
   const category = params.category;
   // SERVER SIDE RENDERING
   const posts = getSinglePage(`content/${blog_folder}`);

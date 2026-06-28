@@ -6,7 +6,8 @@ import { markdownify } from "@lib/utils/textConverter";
 import Authors from "@partials/Authors";
 
 // blog pagination
-const AuthorPagination = async ({ params }) => {
+const AuthorPagination = async props => {
+  const params = await props.params;
   //
   const currentPage = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;

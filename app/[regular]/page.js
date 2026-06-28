@@ -9,7 +9,8 @@ import { getRegularPage, getSinglePage } from "@lib/contentParser";
 const { blog_folder } = config.settings;
 
 // for all regular pages
-const RegularPages = async ({ params }) => {
+const RegularPages = async props => {
+  const params = await props.params;
   // SERVER SIDE RENDERING
   const { regular: slug } = params;
   const pageData = await getRegularPage(slug);

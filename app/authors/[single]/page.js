@@ -2,7 +2,8 @@ import AuthorSingle from "@layouts/AuthorSingle";
 import { getSinglePage } from "@lib/contentParser";
 
 // post single layout
-const Article = async ({ params }) => {
+const Article = async props => {
+  const params = await props.params;
   //
   const { single } = params;
   const getAuthors = getSinglePage("content/authors");
