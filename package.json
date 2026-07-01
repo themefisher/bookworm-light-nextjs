@@ -6,8 +6,8 @@
   "license": "MIT",
   "packageManager": "pnpm@11.9.0",
   "scripts": {
-    "dev": "node lib/jsonGenerator.js && next dev",
-    "build": "node lib/jsonGenerator.js && next build",
+    "dev": "node src/lib/jsonGenerator.js && concurrently \"node scripts/themeGenerator.mjs --watch\" \" next dev\"",
+    "build": "node src/lib/jsonGenerator.js && node scripts/themeGenerator.mjs && next build",
     "export": "next build && next export",
     "lint": "eslint .",
     "start": "next start",
@@ -30,19 +30,18 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/postcss": "^4.3.1",
     "@tailwindcss/typography": "^0.5.20",
-    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
     "date-fns": "^4.4.0",
     "date-fns-tz": "^3.2.0",
     "eslint": "^10",
     "eslint-config-next": "16.2.9",
     "jshint": "^2.13.6",
-    "postcss": "^8.4.42",
     "prettier": "^3.9.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
-    "sass": "^1.77.8",
     "sharp": "^0.35.2",
     "tailwind-bootstrap-grid": "^7.0.0",
-    "tailwindcss": "^3.4.10"
+    "tailwindcss": "^4.3.1"
   }
 }

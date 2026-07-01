@@ -1,0 +1,65 @@
+/* section style */
+.section {
+  @apply py-16;
+}
+
+/* image cover */
+.img-cover {
+  @apply leading-none;
+}
+.img-cover span {
+  @apply h-full w-full;
+}
+.img-cover img {
+  @apply object-cover;
+}
+
+/* author-image */
+.author-image {
+  @apply mr-2 align-top;
+}
+.author-image img {
+  @apply max-h-[25px] max-w-[25px] rounded-full;
+}
+
+/* social icon style */
+.social-icons {
+  @apply space-x-4;
+}
+.social-icons li {
+  @apply inline-block;
+}
+.social-icons li a {
+  @apply block h-12 w-12 rounded-lg border border-light bg-transparent text-center text-white transition hover:border-primary hover:bg-primary;
+}
+.social-icons li a svg {
+  @apply m-auto h-12 text-lg;
+}
+
+.social-icons-simple {
+  @apply space-x-2;
+}
+.social-icons-simple li {
+  @apply inline-block;
+}
+.social-icons-simple li a {
+  @apply block p-3 text-text-dark transition hover:text-primary;
+}
+.social-icons-simple li a svg {
+  @apply text-lg;
+}
+
+.social-share {
+  @apply space-x-2;
+}
+.social-share li {
+  @apply inline-block;
+}
+.social-share li a {
+  @apply block p-3 transition hover:text-primary;
+}
+
+/* content style */
+.content {
+  @apply prose-blockquote:bg-light prose max-w-none prose-headings:font-bold prose-h1:mb-4 prose-h1:text-h1-sm prose-h2:mb-4 prose-h2:mt-4 prose-h2:text-h2-sm prose-h3:mt-4 prose-h3:text-h3-sm prose-h4:mt-4 prose-h5:mb-4 prose-h6:mb-6 prose-blockquote:border-primary prose-blockquote:p-4 md:prose-h1:text-h1 md:prose-h2:text-h2 md:prose-h3:text-h3;
+}
